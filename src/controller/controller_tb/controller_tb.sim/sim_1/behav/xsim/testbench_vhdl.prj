@@ -1,0 +1,33 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../../../cs/buffer.vhd" \
+"../../../../../../chi/chi.vhd" \
+"../../../../../../mil/encoding.vhd" \
+"../../../../../../mil/comparator.vhd" \
+"../../../../../../wupg/counter.vhd" \
+"../../../../../../mil/decoder.vhd" \
+"../../../../../../mil/demux.vhd" \
+"../../../../../../chi/dff.vhd" \
+"../../../../../../mil/encoder.vhd" \
+"../../../../../../mil/error_detection.vhd" \
+"../../../../../../mil/fid_gen.vhd" \
+"../../../../../../pmm/fsm.vhd" \
+"../../../../../main.vhd" \
+"../../../../../../wupg/mainv2.vhd" \
+"../../../../../../cs/micro_comparator.vhd" \
+"../../../../../../cs/micro_counter.vhd" \
+"../../../../../../cs/microtick_counter.vhd" \
+"../../../../../../mil/mil_main.vhd" \
+"../../../../../../mil/mux.vhd" \
+"../../../../../../pmm/pmm.vhd" \
+"../../../../../../wupg/rom.vhd" \
+"../../../../../../mil/scheduler.vhd" \
+"../../../../../../cs/srff.vhd" \
+"../../../../../../cs/vbit_fsm.vhd" \
+"../../../../../../wupg/wupg_mux.vhd" \
+"../../../../../../wup_recognition/wupr_fsm.vhd" \
+"../../../../../../wup_recognition/wupr_main.vhd" \
+"../../../../../main_tb.vhd" \
+
+# Do not sort compile order
+nosort

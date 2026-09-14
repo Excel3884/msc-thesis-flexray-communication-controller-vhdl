@@ -1,0 +1,20 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+ENTITY tesbench IS
+END tesbench;
+
+ARCHITECTURE tb OF tesbench IS
+  SIGNAL sel           : std_logic_vector(1 DOWNTO 0);
+  SIGNAL chi, wupg, cs : std_logic_vector(44 DOWNTO 0);
+  SIGNAL selected      : std_logic_vector(44 DOWNTO 0);
+
+BEGIN
+  mux0 : ENTITY work.mux PORT MAP (sel => sel, chi => chi, wupg => wupg, cs => cs, selected => selected);
+
+  chi <= (44 => '0', OTHERS => '1');
+  wupg <= (44 => '0', )
+  
+
+
+END tb;

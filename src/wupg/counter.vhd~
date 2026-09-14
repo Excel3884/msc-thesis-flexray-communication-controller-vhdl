@@ -1,0 +1,34 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+USE ieee.numeric_std.ALL;
+
+ENTITY counter IS
+  PORT (
+    en, clr, clk : IN  std_logic;
+    output       : OUT std_logic_vector(1 DOWNTO 0) := (OTHERS => 'Z')
+    );
+END counter;
+
+ARCHITECTURE default OF counter IS
+BEGIN
+
+  PROCESS (clk, clr)
+    VARIABLE temp : integer RANGE 0 TO 3;
+  BEGIN
+    CASE en IS
+      WHEN '1' =>
+        CASE clr IS
+          WHEN '0' =>
+            IF (clk'event AND clk = '1') THEN
+              temp := temp + 1;
+            END IF;
+          WHEN OTHERS =>
+            temp := 0;
+        END CASE;
+      WHEN OTHERS =>
+        NULL;
+    END CASE;
+    output <= std_logic_vector(to_unsigned(temp, 2));
+  END PROCESS;
+
+END default;

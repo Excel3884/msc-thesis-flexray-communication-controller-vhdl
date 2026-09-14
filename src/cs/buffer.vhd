@@ -1,0 +1,17 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+ENTITY tri_state_buffer IS
+  PORT (en     : IN  std_logic;
+        input  : IN  std_logic;
+        output : OUT std_logic
+        );
+END tri_state_buffer;
+
+ARCHITECTURE default OF tri_state_buffer IS
+BEGIN
+
+  output <= input WHEN en = '1' ELSE
+            'Z';
+
+END default;

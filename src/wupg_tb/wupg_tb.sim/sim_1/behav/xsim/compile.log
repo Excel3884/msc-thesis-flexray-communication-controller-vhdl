@@ -1,0 +1,15 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/angel/Documents/communication_controller/wupg/counter.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'counter'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/angel/Documents/communication_controller/wupg/dff.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'dff'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/angel/Documents/communication_controller/wupg/mainv2.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'wupg_main'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/angel/Documents/communication_controller/wupg/rom.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'rom'
+WARNING: [VRFC 10-471] case choice must be a locally static expression [/home/angel/Documents/communication_controller/wupg/rom.vhd:25]
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/angel/Documents/communication_controller/wupg/srff.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'srff'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/angel/Documents/communication_controller/wupg/wupg_mux.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'wupg_mux'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/angel/Documents/communication_controller/wupg/wupg_main_tb.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'testbench'

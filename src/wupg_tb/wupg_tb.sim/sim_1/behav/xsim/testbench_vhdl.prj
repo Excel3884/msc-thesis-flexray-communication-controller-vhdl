@@ -1,0 +1,12 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../../Documents/communication_controller/wupg/counter.vhd" \
+"../../../../../Documents/communication_controller/wupg/dff.vhd" \
+"../../../../../Documents/communication_controller/wupg/mainv2.vhd" \
+"../../../../../Documents/communication_controller/wupg/rom.vhd" \
+"../../../../../Documents/communication_controller/wupg/srff.vhd" \
+"../../../../../Documents/communication_controller/wupg/wupg_mux.vhd" \
+"../../../../../Documents/communication_controller/wupg/wupg_main_tb.vhd" \
+
+# Do not sort compile order
+nosort

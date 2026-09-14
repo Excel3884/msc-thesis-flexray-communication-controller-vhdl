@@ -1,0 +1,42 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+ENTITY wupr_main IS
+  PORT (symbol       : IN  std_logic_vector(3 DOWNTO 0);
+        clk, fsm_rst : IN  std_logic;
+        wup_found    : OUT std_logic);
+END wupr_main;
+
+ARCHITECTURE default OF wupr_main IS
+  --components
+  COMPONENT wupr_fsm IS
+    PORT (symbol   : IN std_logic_vector(3 DOWNTO 0);
+          clk, rst : IN std_logic;
+
+          wup_found : OUT std_logic;
+
+          --testing signal
+          curr_state : OUT std_logic_vector(2 DOWNTO 0));
+  END COMPONENT;
+
+  COMPONENT dff IS
+    GENERIC (d_len : integer := 1;
+             q_len : integer := 1);
+    PORT (d            : IN  std_logic_vector(d_len-1 DOWNTO 0);
+          q            : OUT std_logic_vector(q_len-1 DOWNTO 0);
+          clk, rst, en : IN  std_logic);
+  END COMPONENT;
+
+  --wires 
+  SIGNAL wire0      : std_logic_vector(3 DOWNTO 0);
+  --testing signal
+  SIGNAL curr_state : std_logic_vector(2 DOWNTO 0);
+BEGIN
+
+  reg0 : dff GENERIC MAP (d_len => 4, q_len => 4) PORT MAP (d => symbol, q => wire0, clk => clk, rst => '0', en => '1');
+
+  wupr_fsm0 : wupr_fsm PORT MAP (symbol => wire0, clk => clk, rst => fsm_rst, wup_found => wup_found, curr_state => curr_state);
+
+
+
+END default;

@@ -1,0 +1,91 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+USE ieee.numeric_std.ALL;
+
+ENTITY fsm IS
+  PORT (command     : IN std_logic_vector(1 DOWNTO 0);
+        sync_status : IN std_logic;
+        clk, rst    : IN std_logic;
+
+        curr_state : OUT std_logic_vector(2 DOWNTO 0);
+        reset_ack  : OUT std_logic;
+        wup_en     : OUT std_logic;
+        config_ack : OUT std_logic);
+
+END fsm;
+
+-- η αρχιτεκτονική βασίζεται στο στυλ σχεδιασμού #2 απ'το βιβλίο του Pedroni
+ARCHITECTURE fsm_default OF fsm IS
+  TYPE states IS (default_config, config, sleep, wakeup, startup, active, passive, stop);
+  SIGNAL prv_state, nxt_state                         : states;
+  SIGNAL temp_reset_ack, temp_wup_en, temp_config_ack : std_logic;
+BEGIN
+
+  PROCESS (rst, clk)
+  BEGIN
+    IF (rst = '1') THEN
+      curr_state <= std_logic_vector(to_unsigned(states'pos(default_config), 3));
+      prv_state  <= default_config;
+    ELSIF (clk'event AND clk = '1') THEN
+      curr_state <= std_logic_vector(to_unsigned(states'pos(nxt_state), 3));
+      reset_ack  <= temp_reset_ack;
+      wup_en     <= temp_wup_en;
+      config_ack <= temp_config_ack;
+      prv_state  <= nxt_state;
+    END IF;
+  END PROCESS;
+
+  PROCESS (prv_state, command, sync_status)
+  BEGIN
+    CASE prv_state IS
+
+      WHEN default_config =>
+        IF (command = "10") THEN
+          temp_reset_ack <= '0';
+          nxt_state      <= config;
+        END IF;
+
+      WHEN config =>
+        temp_config_ack <= '1';
+        nxt_state       <= sleep;
+
+      WHEN sleep =>
+        IF (command = "00") THEN
+          temp_config_ack <= '0';
+          temp_wup_en     <= '1';
+          nxt_state       <= wakeup;
+        END IF;
+
+      WHEN wakeup =>
+        IF (command = "01") THEN
+          temp_wup_en <= '0';
+          nxt_state   <= startup;
+        END IF;
+
+      WHEN startup =>
+        IF (sync_status = '1') THEN
+          nxt_state <= active;
+        END IF;
+
+      WHEN active =>
+        IF (command = "11") THEN
+          nxt_state <= stop;
+        ELSIF (sync_status = '0') THEN
+          nxt_state <= passive;
+        END IF;
+
+      WHEN passive =>
+        IF (command = "11") THEN
+          nxt_state <= stop;
+        ELSIF (sync_status = '1') THEN
+          nxt_state <= active;
+        END IF;
+
+      WHEN stop =>
+        temp_reset_ack <= '1';
+        nxt_state      <= default_config;
+
+    END CASE;
+  END PROCESS;
+
+END fsm_default;

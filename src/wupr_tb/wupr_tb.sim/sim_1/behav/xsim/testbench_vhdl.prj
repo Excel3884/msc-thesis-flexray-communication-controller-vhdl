@@ -1,0 +1,9 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../../Documents/communication_controller/wup_recognition/dff.vhd" \
+"../../../../../Documents/communication_controller/wup_recognition/wupr_fsm.vhd" \
+"../../../../../Documents/communication_controller/wup_recognition/wupr_main.vhd" \
+"../../../../../Documents/communication_controller/wup_recognition/wupr_main_tb.vhd" \
+
+# Do not sort compile order
+nosort

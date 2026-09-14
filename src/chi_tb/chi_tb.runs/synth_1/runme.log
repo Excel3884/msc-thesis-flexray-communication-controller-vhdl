@@ -1,0 +1,297 @@
+
+*** Running vivado
+    with args -log chi.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source chi.tcl
+
+
+****** Vivado v2021.2 (64-bit)
+  **** SW Build 3367213 on Tue Oct 19 02:47:39 MDT 2021
+  **** IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+    ** Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+
+source chi.tcl -notrace
+Command: synth_design -top chi -part xc7k70tfbv676-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7k70t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7k70t'
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 8820
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2601.473 ; gain = 0.000 ; free physical = 536 ; free virtual = 11812
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'chi' [/home/angel/Documents/communication_controller/chi/chi.vhd:30]
+	Parameter d_len bound to: 2 - type: integer 
+	Parameter q_len bound to: 2 - type: integer 
+INFO: [Synth 8-3491] module 'dff' declared at '/home/angel/Documents/communication_controller/chi/dff.vhd:4' bound to instance 'reg0' of component 'dff' [/home/angel/Documents/communication_controller/chi/chi.vhd:43]
+INFO: [Synth 8-638] synthesizing module 'dff' [/home/angel/Documents/communication_controller/chi/dff.vhd:12]
+	Parameter d_len bound to: 2 - type: integer 
+	Parameter q_len bound to: 2 - type: integer 
+INFO: [Synth 8-226] default block is never used [/home/angel/Documents/communication_controller/chi/dff.vhd:20]
+WARNING: [Synth 8-614] signal 'en' is read in the process but is not in the sensitivity list [/home/angel/Documents/communication_controller/chi/dff.vhd:16]
+INFO: [Synth 8-256] done synthesizing module 'dff' (1#1) [/home/angel/Documents/communication_controller/chi/dff.vhd:12]
+	Parameter d_len bound to: 50 - type: integer 
+	Parameter q_len bound to: 50 - type: integer 
+INFO: [Synth 8-3491] module 'dff' declared at '/home/angel/Documents/communication_controller/chi/dff.vhd:4' bound to instance 'reg1' of component 'dff' [/home/angel/Documents/communication_controller/chi/chi.vhd:45]
+INFO: [Synth 8-638] synthesizing module 'dff__parameterized1' [/home/angel/Documents/communication_controller/chi/dff.vhd:12]
+	Parameter d_len bound to: 50 - type: integer 
+	Parameter q_len bound to: 50 - type: integer 
+INFO: [Synth 8-226] default block is never used [/home/angel/Documents/communication_controller/chi/dff.vhd:20]
+WARNING: [Synth 8-614] signal 'en' is read in the process but is not in the sensitivity list [/home/angel/Documents/communication_controller/chi/dff.vhd:16]
+INFO: [Synth 8-256] done synthesizing module 'dff__parameterized1' (1#1) [/home/angel/Documents/communication_controller/chi/dff.vhd:12]
+	Parameter d_len bound to: 45 - type: integer 
+	Parameter q_len bound to: 45 - type: integer 
+INFO: [Synth 8-3491] module 'dff' declared at '/home/angel/Documents/communication_controller/chi/dff.vhd:4' bound to instance 'reg2' of component 'dff' [/home/angel/Documents/communication_controller/chi/chi.vhd:47]
+INFO: [Synth 8-638] synthesizing module 'dff__parameterized3' [/home/angel/Documents/communication_controller/chi/dff.vhd:12]
+	Parameter d_len bound to: 45 - type: integer 
+	Parameter q_len bound to: 45 - type: integer 
+INFO: [Synth 8-226] default block is never used [/home/angel/Documents/communication_controller/chi/dff.vhd:20]
+WARNING: [Synth 8-614] signal 'en' is read in the process but is not in the sensitivity list [/home/angel/Documents/communication_controller/chi/dff.vhd:16]
+INFO: [Synth 8-256] done synthesizing module 'dff__parameterized3' (1#1) [/home/angel/Documents/communication_controller/chi/dff.vhd:12]
+INFO: [Synth 8-256] done synthesizing module 'chi' (2#1) [/home/angel/Documents/communication_controller/chi/chi.vhd:30]
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2601.473 ; gain = 0.000 ; free physical = 258 ; free virtual = 11468
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2601.473 ; gain = 0.000 ; free physical = 251 ; free virtual = 11462
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7k70tfbv676-1
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7k70tfbv676-1
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2609.332 ; gain = 7.859 ; free physical = 249 ; free virtual = 11461
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2609.332 ; gain = 7.859 ; free physical = 1144 ; free virtual = 12356
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input    1 Bit        Muxes := 3     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 2609.332 ; gain = 7.859 ; free physical = 925 ; free virtual = 12140
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 2609.332 ; gain = 7.859 ; free physical = 923 ; free virtual = 12138
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 2609.332 ; gain = 7.859 ; free physical = 923 ; free virtual = 12138
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2609.332 ; gain = 7.859 ; free physical = 916 ; free virtual = 12139
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2609.332 ; gain = 7.859 ; free physical = 916 ; free virtual = 12139
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2609.332 ; gain = 7.859 ; free physical = 916 ; free virtual = 12139
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2609.332 ; gain = 7.859 ; free physical = 916 ; free virtual = 12139
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2609.332 ; gain = 7.859 ; free physical = 916 ; free virtual = 12139
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2609.332 ; gain = 7.859 ; free physical = 916 ; free virtual = 12139
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-----+------+
+|      |Cell |Count |
++------+-----+------+
+|1     |OBUF |    97|
++------+-----+------+
+
+Report Instance Areas: 
++------+---------+-------+------+
+|      |Instance |Module |Cells |
++------+---------+-------+------+
+|1     |top      |       |    97|
++------+---------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2609.332 ; gain = 7.859 ; free physical = 916 ; free virtual = 12139
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 101 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2609.332 ; gain = 7.859 ; free physical = 915 ; free virtual = 12138
+Synthesis Optimization Complete : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2609.340 ; gain = 7.859 ; free physical = 916 ; free virtual = 12139
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2609.340 ; gain = 0.000 ; free physical = 1001 ; free virtual = 12224
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2609.340 ; gain = 0.000 ; free physical = 918 ; free virtual = 12132
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete, checksum: 980d2184
+INFO: [Common 17-83] Releasing license: Synthesis
+24 Infos, 101 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:23 ; elapsed = 00:00:18 . Memory (MB): peak = 2609.340 ; gain = 8.012 ; free physical = 1121 ; free virtual = 12335
+INFO: [Common 17-1381] The checkpoint '/home/angel/chi_tb/chi_tb.runs/synth_1/chi.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file chi_utilization_synth.rpt -pb chi_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Mon Jul  4 12:21:49 2022...

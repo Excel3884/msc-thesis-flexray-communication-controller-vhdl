@@ -1,0 +1,85 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+ENTITY error_detect IS
+  PORT (input        : IN  std_logic_vector(53 DOWNTO 0);
+        output       : OUT std_logic_vector(53 DOWNTO 0);
+        en, rst, clk : IN  std_logic;
+        found_error  : OUT std_logic);
+END error_detect;
+
+
+ARCHITECTURE default OF error_detect IS
+  COMPONENT comparator IS
+    PORT (input       : IN  std_logic_vector(4 DOWNTO 0);
+          output      : OUT std_logic_vector(4 DOWNTO 0);
+          en, clk     : IN  std_logic;
+          found_error : OUT std_logic);
+  END COMPONENT;
+
+  COMPONENT dff IS
+    GENERIC (d_len : integer := 5;
+             q_len : integer := 5);
+    PORT (d            : IN  std_logic_vector(d_len-1 DOWNTO 0);
+          q            : OUT std_logic_vector(q_len-1 DOWNTO 0);
+          clk, rst, en : IN  std_logic);
+  END COMPONENT;
+
+  -- wires for flip flops' output
+  SIGNAL dff0_out  : std_logic_vector(4 DOWNTO 0);
+  SIGNAL dff1_out  : std_logic_vector(4 DOWNTO 0);
+  SIGNAL dff2_out  : std_logic_vector(4 DOWNTO 0);
+  SIGNAL dff3_out  : std_logic_vector(4 DOWNTO 0);
+  SIGNAL dff4_out  : std_logic_vector(4 DOWNTO 0);
+  SIGNAL dff5_out  : std_logic_vector(4 DOWNTO 0);
+  SIGNAL dff6_out  : std_logic_vector(4 DOWNTO 0);
+  SIGNAL dff7_out  : std_logic_vector(4 DOWNTO 0);
+  SIGNAL dff8_out  : std_logic_vector(4 DOWNTO 0);
+  SIGNAL dff9_out  : std_logic_vector(4 DOWNTO 0);
+  SIGNAL dff10_out : std_logic_vector(4 DOWNTO 0);
+
+  -- wires for "foun_error" output of comparators
+  SIGNAL error0  : std_logic;
+  SIGNAL error1  : std_logic;
+  SIGNAL error2  : std_logic;
+  SIGNAL error3  : std_logic;
+  SIGNAL error4  : std_logic;
+  SIGNAL error5  : std_logic;
+  SIGNAL error6  : std_logic;
+  SIGNAL error7  : std_logic;
+  SIGNAL error8  : std_logic;
+  SIGNAL error9  : std_logic;
+  SIGNAL error10 : std_logic;
+
+BEGIN
+
+  -- flip flops before comparators
+  dff0  : dff PORT MAP (d => input(54 DOWNTO 50), q => dff0_out, clk => clk, rst => rst, en => en);
+  dff1  : dff PORT MAP (d => input(49 DOWNTO 45), q => dff1_out, clk => clk, rst => rst, en => en);
+  dff2  : dff PORT MAP (d => input(44 DOWNTO 40), q => dff2_out, clk => clk, rst => rst, en => en);
+  dff3  : dff PORT MAP (d => input(39 DOWNTO 35), q => dff3_out, clk => clk, rst => rst, en => en);
+  dff4  : dff PORT MAP (d => input(34 DOWNTO 30), q => dff4_out, clk => clk, rst => rst, en => en);
+  dff5  : dff PORT MAP (d => input(29 DOWNTO 25), q => dff5_out, clk => clk, rst => rst, en => en);
+  dff6  : dff PORT MAP (d => input(24 DOWNTO 20), q => dff6_out, clk => clk, rst => rst, en => en);
+  dff7  : dff PORT MAP (d => input(19 DOWNTO 15), q => dff7_out, clk => clk, rst => rst, en => en);
+  dff8  : dff PORT MAP (d => input(14 DOWNTO 10), q => dff8_out, clk => clk, rst => rst, en => en);
+  dff9  : dff PORT MAP (d => input(9 DOWNTO 5), q => dff9_out, clk => clk, rst => rst, en => en);
+  dff10 : dff PORT MAP (d => input(4 DOWNTO 0), q => dff10_out, clk => clk, rst => rst, en => en);
+
+  -- comparators
+  comp0  : comparator PORT MAP (input => dff0_out, output => output(54 DOWNTO 50), en => en, clk => clk, found_error => error0);
+  comp1  : comparator PORT MAP (input => dff1_out, output => output(49 DOWNTO 45), en => en, clk => clk, found_error => error1);
+  comp2  : comparator PORT MAP (input => dff2_out, output => output(44 DOWNTO 40), en => en, clk => clk, found_error => error2);
+  comp3  : comparator PORT MAP (input => dff3_out, output => output(39 DOWNTO 35), en => en, clk => clk, found_error => error3);
+  comp4  : comparator PORT MAP (input => dff4_out, output => output(34 DOWNTO 30), en => en, clk => clk, found_error => error4);
+  comp5  : comparator PORT MAP (input => dff5_out, output => output(29 DOWNTO 25), en => en, clk => clk, found_error => error5);
+  comp6  : comparator PORT MAP (input => dff6_out, output => output(24 DOWNTO 20), en => en, clk => clk, found_error => error6);
+  comp7  : comparator PORT MAP (input => dff7_out, output => output(19 DOWNTO 15), en => en, clk => clk, found_error => error7);
+  comp8  : comparator PORT MAP (input => dff8_out, output => output(14 DOWNTO 10), en => en, clk => clk, found_error => error8);
+  comp9  : comparator PORT MAP (input => dff9_out, output => output(9 DOWNTO 5), en => en, clk => clk, found_error => error9);
+  comp10 : comparator PORT MAP (input => dff10_out, output => output(4 DOWNTO 0), en => en, clk => clk, found_error => error10);
+
+  -- OR gate for "found_error" signals
+  found_error <= error0 OR error1 OR error2 OR error3 OR error4 OR error5 OR error6 OR error7 OR error8 OR error9 OR error10;
+
+END default;

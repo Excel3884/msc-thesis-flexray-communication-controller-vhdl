@@ -1,0 +1,1 @@
+--incr --debug "typical" --relax --mt "8" -L "xil_defaultlib" -L "secureip" --snapshot "mil_main_behav" "xil_defaultlib.mil_main" -log "elaborate.log" 

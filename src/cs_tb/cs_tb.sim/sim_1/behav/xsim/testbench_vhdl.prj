@@ -1,0 +1,13 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../../Documents/communication_controller/cs/buffer.vhd" \
+"../../../../../Documents/communication_controller/cs/dff.vhd" \
+"../../../../../Documents/communication_controller/cs/micro_comparator.vhd" \
+"../../../../../Documents/communication_controller/cs/micro_counter.vhd" \
+"../../../../../Documents/communication_controller/cs/microtick_counter.vhd" \
+"../../../../../Documents/communication_controller/cs/srff.vhd" \
+"../../../../../Documents/communication_controller/cs/vbit_fsm.vhd" \
+"../../../../../Documents/communication_controller/cs/microtick_counter_tb.vhd" \
+
+# Do not sort compile order
+nosort

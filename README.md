@@ -1,2 +1,6 @@
-# msc-thesis-flexray-communication-controller-vhdl
-MSc Thesis: FPGA-Targeted Design and Simulation of a FlexRay Communication Controller in VHDL
+# MSc Thesis: FPGA-Targeted Design and Simulation of a FlexRay Communication Controller in VHDL
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
+## Abstract
+Nowadays, modern vehicles incorporate more and more features, such as automated parking, pedestrian detection, etc. The FlexRay communication protocol is now one of the widely used protocols in the automotive industry for the operation of the aforementioned features. This is because the protocol offers faster data transmission and higher reliability. At the same time, however, the FlexRay protocol requires higher bandwidth and consumes more energy compared to previously used protocols, resulting in a degradation of the overall system performance. For this reason, it is proposed to extend the capabilities of the communication controllers at each node of the network where the FlexRay protocol operates. In this way, the overall quality and efficiency of the system would be improved. Most off-the-shelf devices do not allow such an extension, but it would be feasible through the use of programmable logic, and more specifically a Field-Programmable Gate Array (FPGA). The purpose of this Diploma Thesis is therefore the design and simulation of a corresponding Communication Controller, using the hardware description language VHDL.

@@ -1,0 +1,48 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+ENTITY testbench IS
+END testbench;
+
+ARCHITECTURE tb OF testbench IS
+  SIGNAL command          : std_logic_vector(1 DOWNTO 0);
+  SIGNAL sync_status, rst : std_logic;
+  SIGNAL clk              : std_logic := '0';
+
+  SIGNAL curr_state                    : std_logic_vector(2 DOWNTO 0);
+  SIGNAL reset_ack, wup_en, config_ack : std_logic;
+BEGIN
+  fsm : ENTITY work.fsm PORT MAP (command => command, sync_status => sync_status, clk => clk, rst => rst, curr_state => curr_state, reset_ack => reset_ack, wup_en => wup_en, config_ack => config_ack);
+
+  clk <= NOT clk AFTER 10 ns;
+
+  PROCESS
+  BEGIN
+    sync_status <= '0';
+    rst         <= '1';
+    WAIT FOR 25 ns;
+
+    rst     <= '0';
+    command <= "10";
+    WAIT FOR 40 ns;
+
+    command <= "00";
+    WAIT FOR 30 ns;
+
+    command <= "01";
+    WAIT FOR 25 ns;
+
+    sync_status <= '1';
+    WAIT FOR 25 ns;
+
+    sync_status <= '0';
+    WAIT FOR 25 ns;
+
+    command <= "11";
+    WAIT FOR 80 ns;
+
+  END PROCESS;
+
+
+
+END tb;

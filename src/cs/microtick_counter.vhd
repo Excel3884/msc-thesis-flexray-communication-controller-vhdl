@@ -1,0 +1,132 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+ENTITY microtick_counter IS
+  PORT (
+    state            : IN  std_logic_vector(2 DOWNTO 0);
+    clk, macro_clock : IN  std_logic;
+    global_value     : IN  std_logic_vector(3 DOWNTO 0);  --απαιτούμενα macroticks
+                                                          --από διαιτητή
+    reset_ff         : IN  std_logic;
+    test_output      : OUT std_logic_vector(3 DOWNTO 0);
+
+    -- output frame
+    output : OUT std_logic_vector(44 DOWNTO 0);
+
+    --reset signal for the vbit fsm
+    rst : IN std_logic;
+
+
+    -- test signal for the vbit fsm
+    fsm_state : OUT std_logic_vector(1 DOWNTO 0)
+
+    );
+END microtick_counter;
+
+ARCHITECTURE default OF microtick_counter IS
+  --components 
+  COMPONENT srff IS
+    PORT (
+      set, rst, clk : IN  std_logic;
+      q             : OUT std_logic
+      );
+  END COMPONENT;
+
+  COMPONENT dff IS
+    GENERIC (d_len : integer := 1;
+             q_len : integer := 1);
+    PORT (d            : IN  std_logic_vector(d_len-1 DOWNTO 0);
+          q            : OUT std_logic_vector(q_len-1 DOWNTO 0);
+          clk, rst, en : IN  std_logic);
+  END COMPONENT;
+
+  COMPONENT micro_comparator IS
+    PORT (local_value  : IN  std_logic_vector(3 DOWNTO 0);  --microticks που μετρήθηκαν
+          global_value : IN  std_logic_vector(3 DOWNTO 0);  -- απαιτούμενα microticks από διαιτητή
+          en, clk      : IN  std_logic;
+          sync_status  : OUT std_logic);
+  END COMPONENT;
+
+  COMPONENT micro_counter IS
+    PORT (
+      en, clr, clk : IN  std_logic;
+      output       : OUT std_logic_vector(3 DOWNTO 0) := (OTHERS => 'Z')
+      );
+  END COMPONENT;
+
+  COMPONENT tri_state_buffer IS
+    PORT (en     : IN  std_logic;
+          input  : IN  std_logic;
+          output : OUT std_logic
+          );
+  END COMPONENT;
+
+  COMPONENT vbit_fsm IS
+    PORT (
+      buffer_inv   : IN  std_logic;
+      validity_bit : OUT std_logic;
+
+      clk, rst : IN std_logic;
+
+      --testing signal
+      curr_state : OUT std_logic_vector(1 DOWNTO 0)
+      );
+  END COMPONENT;
+
+
+-- wires
+  SIGNAL and0_out   : std_logic;
+  SIGNAL and1_out   : std_logic;
+  SIGNAL buffer_en  : std_logic;
+  SIGNAL buffer_out : std_logic;
+  SIGNAL buffer_inv : std_logic;
+  SIGNAL cnt_out    : std_logic_vector(3 DOWNTO 0);
+  SIGNAL dff0_out   : std_logic_vector(3 DOWNTO 0);
+
+  SIGNAL local_value  : std_logic_vector(3 DOWNTO 0);  --microticks που
+                                                       --μετρήθηκαν, λαμβάνεται
+                                                       --απ' το DFF1
+  SIGNAL sync_status  : std_logic;      -- λαμβάνεται απ' το comparator
+  SIGNAL validity_bit : std_logic;      -- λαμβάνεται απ' το vbit_fsm
+
+BEGIN
+
+  -- set signal for SR FF
+  and0_out <= state(2) AND (NOT state(1)) AND (NOT (state(0)));
+
+  -- reset signal for SR FF
+  and1_out <= state(2) AND state(1) AND state(0);
+
+  -- sr FF
+  srff0 : srff PORT MAP (set => and0_out, rst => and1_out, clk => clk, q => buffer_en);
+
+  -- buffer
+  buffer0 : tri_state_buffer PORT MAP (en => buffer_en, input => macro_clock, output => buffer_out);
+
+  -- NOT gate
+  buffer_inv <= NOT buffer_out;
+
+  -- counter
+  counter0 : micro_counter PORT MAP (en => buffer_out, clr => '0', clk => clk, output => cnt_out);
+
+
+  -- D FF 0
+  dff0 : dff GENERIC MAP (d_len => 4, q_len => 4) PORT MAP (d => cnt_out, q => dff0_out, clk => clk, rst => reset_ff, en => buffer_inv);
+
+  test_output <= dff0_out;
+
+  -- comparator
+  comparator0 : micro_comparator PORT MAP (local_value => dff0_out, global_value => global_value, en => buffer_inv, clk => clk, sync_status => sync_status);
+
+  -- D FF 1
+  dff1 : dff GENERIC MAP (d_len => 4, q_len => 4) PORT MAP (d => dff0_out, q => local_value, clk => clk, rst => reset_ff, en => buffer_inv);
+
+  -- D FF 2
+  dff2 : dff GENERIC MAP (d_len => 45, q_len => 45) PORT MAP (d(44 DOWNTO 40) => (OTHERS => '0'), d(39 DOWNTO 35) => "00110", d(34 DOWNTO 33) => "10", d(32 DOWNTO 6) => (OTHERS => '0'), d(5 DOWNTO 2) => local_value, d(1) => sync_status, d(0) => validity_bit, q => output, clk => clk, rst => reset_ff, en => '1');
+
+  -- vbit fsm, χρησιμοποιείται για να θέσει το validity bit σε 1
+  vbit_fsm0 : vbit_fsm PORT MAP (buffer_inv => buffer_inv, validity_bit => validity_bit, clk => clk, rst => rst, curr_state => fsm_state);
+
+
+
+END default;

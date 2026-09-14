@@ -1,0 +1,35 @@
+
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+-- πάντα enabled
+ENTITY srff IS
+  PORT (
+    set, rst, clk : IN  std_logic;
+    q             : OUT std_logic
+    );
+END srff;
+
+ARCHITECTURE default OF srff IS
+
+BEGIN
+
+  PROCESS (rst, clk, set)
+  BEGIN
+    CASE rst IS
+      WHEN '1' =>
+        IF (set = '0') THEN
+          q <= '0';
+        ELSIF (set = '1') THEN
+          q <= 'Z';
+        END IF;
+      WHEN '0' =>
+        IF (clk'event AND clk = '1' AND set = '1') THEN
+          q <= '1';
+        END IF;
+      WHEN OTHERS =>
+        q <= 'Z';
+    END CASE;
+  END PROCESS;
+
+END default;

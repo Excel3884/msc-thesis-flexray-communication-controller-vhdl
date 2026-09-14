@@ -1,0 +1,17 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+ENTITY encoder IS
+  PORT (input   : IN  std_logic_vector(43 DOWNTO 0);
+        en, clk : IN  std_logic;
+        output  : OUT std_logic_vector(54 DOWNTO 0));
+
+END encoder;
+
+ARCHITECTURE default OF encoder IS
+BEGIN
+
+
+END default;
+
+

@@ -1,0 +1,8 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/angel/Documents/communication_controller/wup_recognition/dff.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'dff'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/angel/Documents/communication_controller/wup_recognition/wupr_fsm.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'wupr_fsm'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/angel/Documents/communication_controller/wup_recognition/wupr_main.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'wupr_main'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/angel/Documents/communication_controller/wup_recognition/wupr_main_tb.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'testbench'

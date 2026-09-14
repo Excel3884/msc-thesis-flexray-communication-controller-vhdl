@@ -1,0 +1,38 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+USE work.encoding.ALL;
+
+ENTITY decoder IS
+  PORT (input   : IN  std_logic_vector(54 DOWNTO 0);
+        en, clk : IN  std_logic;
+        output  : OUT std_logic_vector(43 DOWNTO 0) := (OTHERS => 'Z'));
+
+END decoder;
+
+ARCHITECTURE default OF decoder IS
+BEGIN
+  PROCESS (clk)
+  BEGIN
+    CASE en IS
+      WHEN '1' =>
+        IF (clk'event AND clk = '1') THEN
+          decode(input(54 DOWNTO 50), output(43 DOWNTO 40));
+          decode(input(49 DOWNTO 45), output(39 DOWNTO 36));
+          decode(input(44 DOWNTO 40), output(35 DOWNTO 32));
+          decode(input(39 DOWNTO 35), output(31 DOWNTO 28));
+          decode(input(34 DOWNTO 30), output(27 DOWNTO 24));
+          decode(input(29 DOWNTO 25), output(23 DOWNTO 20));
+          decode(input(24 DOWNTO 20), output(19 DOWNTO 16));
+          decode(input(19 DOWNTO 15), output(15 DOWNTO 12));
+          decode(input(14 DOWNTO 10), output(11 DOWNTO 8));
+          decode(input(9 DOWNTO 5), output(7 DOWNTO 4));
+          decode(input(4 DOWNTO 0), output(3 DOWNTO 0));
+        END IF;
+      WHEN OTHERS =>
+        output <= (OTHERS => 'Z');
+    END CASE;
+  END PROCESS;
+
+END default;
+
+

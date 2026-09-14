@@ -1,0 +1,23 @@
+Vivado Simulator v2021.2
+Copyright 1986-1999, 2001-2021 Xilinx, Inc. All Rights Reserved.
+Running: /tools/Xilinx/Vivado/2021.2/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot testbench_behav xil_defaultlib.testbench -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture default of entity xil_defaultlib.srff [srff_default]
+Compiling architecture default of entity xil_defaultlib.tri_state_buffer [tri_state_buffer_default]
+Compiling architecture default of entity xil_defaultlib.micro_counter [micro_counter_default]
+Compiling architecture default of entity xil_defaultlib.dff [\dff(d_len=4,q_len=4)\]
+Compiling architecture default of entity xil_defaultlib.micro_comparator [micro_comparator_default]
+Compiling architecture default of entity xil_defaultlib.dff [\dff(d_len=45,q_len=45)\]
+Compiling architecture default of entity xil_defaultlib.vbit_fsm [vbit_fsm_default]
+Compiling architecture default of entity xil_defaultlib.microtick_counter [microtick_counter_default]
+Compiling architecture tb of entity xil_defaultlib.testbench
+Built simulation snapshot testbench_behav

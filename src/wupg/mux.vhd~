@@ -1,0 +1,21 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+ENTITY mux IS
+  PORT (sel  : IN std_logic;
+        a, b : IN std_logic;
+
+        output : OUT std_logic);
+END mux;
+
+ARCHITECTURE default OF mux IS
+BEGIN
+
+  WITH sel SELECT
+    output <= a     WHEN "0",
+    b WHEN "1",
+    (OTHERS => 'Z') WHEN OTHERS;
+
+
+
+END default;

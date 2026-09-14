@@ -1,0 +1,17 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../../mil/encoding.vhd" \
+"../../../../../mil/comparator.vhd" \
+"../../../../../mil/decoder.vhd" \
+"../../../../../mil/demux.vhd" \
+"../../../../../mil/dff.vhd" \
+"../../../../../mil/encoder.vhd" \
+"../../../../../mil/error_detection.vhd" \
+"../../../../../mil/fid_gen.vhd" \
+"../../../../../mil/mil_main.vhd" \
+"../../../../../mil/mux.vhd" \
+"../../../../../mil/scheduler.vhd" \
+"../../../../../mil/mil_main_tb.vhd" \
+
+# Do not sort compile order
+nosort

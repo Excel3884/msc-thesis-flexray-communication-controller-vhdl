@@ -1,0 +1,86 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+PACKAGE encoding IS
+
+  -- πινακες για την αποθηκευση αντιστοιχιων 4b5b κωδικοποιηση/αποκωδικοποιηση
+  TYPE array4b IS ARRAY (0 TO 15) OF std_logic_vector(3 DOWNTO 0);
+  CONSTANT array0 : array4b := (
+    ("0000"), ("0001"), ("0010"), ("0011"), ("0100"), ("0101"),
+    ("0110"), ("0111"), ("1000"), ("1001"), ("1010"), ("1011"),
+    ("1100"), ("1101"), ("1110"), ("1111")
+    );
+  TYPE array5b IS ARRAY (0 TO 15) OF std_logic_vector(4 DOWNTO 0);
+  CONSTANT array1 : array5b := (
+    ("11110"), ("01001"), ("10100"), ("10101"), ("01010"),
+    ("01011"), ("01110"), ("01111"), ("10010"), ("10011"),
+    ("10110"), ("10111"), ("11010"), ("11011"), ("11100"),
+    ("11101")
+    );
+
+  -- κωδικοποιηση
+  PROCEDURE encode(SIGNAL input  : IN  std_logic_vector(3 DOWNTO 0);
+                   SIGNAL output : OUT std_logic_vector(4 DOWNTO 0));
+
+  -- αποκωδικοποίηση
+  PROCEDURE decode(SIGNAL input  : IN  std_logic_vector(4 DOWNTO 0);
+                   SIGNAL output : OUT std_logic_vector(3 DOWNTO 0));
+
+  -- έλεγχος για σφάλματα
+  PROCEDURE check(SIGNAL input       : IN  std_logic_vector(4 DOWNTO 0);
+                  SIGNAL output      : OUT std_logic_vector(4 DOWNTO 0);
+                  SIGNAL found_error : OUT std_logic);
+
+
+END encoding;
+
+PACKAGE BODY encoding IS
+
+  PROCEDURE check(SIGNAL input : IN std_logic_vector(4 DOWNTO 0); SIGNAL output : OUT std_logic_vector(4 DOWNTO 0); SIGNAL found_error : OUT std_logic) IS
+    VARIABLE found_match : boolean := false;  --η μεταβλητή δηλώνει αν βρέθηκε
+                                        --αντιστοιχία, αρχικά υποθέτουμε ότι
+                                        -- δε βεθηκε
+    VARIABLE counter     : integer := 0;
+  BEGIN
+    c0 : FOR i IN 0 TO 15 LOOP
+      IF (input = array1(counter)) THEN       -- αν υπάρχει αντιστοιχία
+        output      <= input;
+        found_match := true;
+        found_error <= '0';             -- δηλώνουμε ότι δεν υπάρχει σφάλμα
+        EXIT;
+      END IF;
+      counter := counter + 1;
+    END LOOP;
+    IF (NOT found_match) THEN           --αν δε βρέθηκε αντιστοιχία
+      found_error <= '1';               -- δηλώνουμε ότι υπάρχει σφάλμα
+      output      <= (OTHERS => 'Z');
+    END IF;
+  END check;
+
+
+  PROCEDURE encode(SIGNAL input : std_logic_vector(3 DOWNTO 0); SIGNAL output : OUT std_logic_vector(4 DOWNTO 0)) IS
+    VARIABLE counter : integer := 0;
+  BEGIN
+    c0 : FOR i IN 0 TO 15 LOOP
+      IF (input = array0(counter)) THEN
+        output <= array1(counter);
+        EXIT;
+      END IF;
+      counter := counter + 1;
+    END LOOP;
+  END encode;
+
+  PROCEDURE decode(SIGNAL input : std_logic_vector(4 DOWNTO 0); SIGNAL output : OUT std_logic_vector(3 DOWNTO 0)) IS
+    VARIABLE counter : integer := 0;
+  BEGIN
+    c0 : FOR i IN 0 TO 15 LOOP
+      IF (input = array1(counter)) THEN
+        output <= array0(counter);
+        EXIT;
+      END IF;
+      counter := counter + 1;
+    END LOOP;
+  END decode;
+
+END encoding;
+

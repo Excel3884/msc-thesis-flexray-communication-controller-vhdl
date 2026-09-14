@@ -1,0 +1,29 @@
+Vivado Simulator v2021.2
+Copyright 1986-1999, 2001-2021 Xilinx, Inc. All Rights Reserved.
+Running: /tools/Xilinx/Vivado/2021.2/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot testbench_behav xil_defaultlib.testbench -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package xil_defaultlib.encoding
+Compiling architecture default of entity xil_defaultlib.scheduler [scheduler_default]
+Compiling architecture default of entity xil_defaultlib.mux [mux_default]
+Compiling architecture default of entity xil_defaultlib.dff [\dff(d_len=45,q_len=45)\]
+Compiling architecture default of entity xil_defaultlib.fid_gen [fid_gen_default]
+Compiling architecture default of entity xil_defaultlib.dff [\dff(d_len=44,q_len=44)\]
+Compiling architecture default of entity xil_defaultlib.encoder [encoder_default]
+Compiling architecture default of entity xil_defaultlib.dff [\dff(d_len=55,q_len=55)\]
+Compiling architecture default of entity xil_defaultlib.dff [\dff(d_len=5,q_len=5)\]
+Compiling architecture default of entity xil_defaultlib.comparator [comparator_default]
+Compiling architecture default of entity xil_defaultlib.error_detect [error_detect_default]
+Compiling architecture default of entity xil_defaultlib.decoder [decoder_default]
+Compiling architecture default of entity xil_defaultlib.demux [demux_default]
+Compiling architecture default of entity xil_defaultlib.mil_main [mil_main_default]
+Compiling architecture tb of entity xil_defaultlib.testbench
+Built simulation snapshot testbench_behav

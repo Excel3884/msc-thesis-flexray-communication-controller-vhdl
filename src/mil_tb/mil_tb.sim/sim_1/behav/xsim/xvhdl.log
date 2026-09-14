@@ -1,0 +1,6 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/angel/Documents/communication_controller/mil/fid_gen.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'fid_gen'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/angel/Documents/communication_controller/mil/mil_main.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'mil_main'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/angel/Documents/communication_controller/mil/mil_main_tb.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'testbench'

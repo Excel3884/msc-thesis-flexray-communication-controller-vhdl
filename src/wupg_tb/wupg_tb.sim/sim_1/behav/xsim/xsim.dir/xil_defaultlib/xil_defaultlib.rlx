@@ -1,0 +1,11 @@
+0.7
+2020.2
+Oct 19 2021
+02:56:52
+/home/angel/Documents/communication_controller/wupg/counter.vhd,1648395257,vhdl,,,,counter,,,,,,,,
+/home/angel/Documents/communication_controller/wupg/dff.vhd,1647676521,vhdl,,,,dff,,,,,,,,
+/home/angel/Documents/communication_controller/wupg/mainv2.vhd,1653120149,vhdl,/home/angel/Documents/communication_controller/wupg/wupg_main_tb.vhd,,,wupg_main,,,,,,,,
+/home/angel/Documents/communication_controller/wupg/rom.vhd,1651132142,vhdl,,,,rom,,,,,,,,
+/home/angel/Documents/communication_controller/wupg/srff.vhd,1648141872,vhdl,,,,srff,,,,,,,,
+/home/angel/Documents/communication_controller/wupg/wupg_main_tb.vhd,1651130897,vhdl,,,,testbench,,,,,,,,
+/home/angel/Documents/communication_controller/wupg/wupg_mux.vhd,1653120169,vhdl,,,,wupg_mux,,,,,,,,

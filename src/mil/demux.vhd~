@@ -1,0 +1,16 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+ENTITY demux IS
+  PORT (sel   : IN std_logic_vector(1 DOWNTO 0);
+        input : IN std_logic_vector(43 DOWNTO 0);
+
+        a, b, c : OUT std_logic_vector(43 DOWNTO 0));
+END demux;
+
+ARCHITECTURE default OF demux IS
+BEGIN
+
+
+
+END default;

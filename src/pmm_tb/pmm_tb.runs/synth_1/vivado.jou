@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2021.2 (64-bit)
+# SW Build 3367213 on Tue Oct 19 02:47:39 MDT 2021
+# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+# Start of session at: Fri Jul  8 18:02:54 2022
+# Process ID: 171290
+# Current directory: /home/angel/Documents/communication_controller/pmm_tb/pmm_tb.runs/synth_1
+# Command line: vivado -log pmm.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source pmm.tcl
+# Log file: /home/angel/Documents/communication_controller/pmm_tb/pmm_tb.runs/synth_1/pmm.vds
+# Journal file: /home/angel/Documents/communication_controller/pmm_tb/pmm_tb.runs/synth_1/vivado.jou
+# Running On: angel-desktop, OS: Linux, CPU Frequency: 1550.000 MHz, CPU Physical cores: 12, Host memory: 16696 MB
+#-----------------------------------------------------------
+source pmm.tcl -notrace

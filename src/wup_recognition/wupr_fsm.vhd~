@@ -1,0 +1,19 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+USE ieee.numeric_std.ALL;
+
+ENTITY wupr_fsm IS
+  PORT (symbol : IN std_logic_vector(3 DOWNTO 0);
+        clk    : IN std_logic;
+
+        wup_found : OUT std_logic);
+END wupr_fsm;
+
+-- η αρχιτεκτονική βασίζεται στο στυλ σχεδιασμού #2 απ'το βιβλίο του Pedroni
+ARCHITECTURE default OF wupr_fsm IS
+  TYPE states IS (m0, m1, m2, m3, m4);
+  SIGNAL prv_state, nxt_state : states;
+  SIGNAL temp_wup_found       : std_logic;
+BEGIN
+
+END default;

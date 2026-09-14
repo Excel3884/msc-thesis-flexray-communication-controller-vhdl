@@ -1,0 +1,490 @@
+#-----------------------------------------------------------
+# Vivado v2021.2 (64-bit)
+# SW Build 3367213 on Tue Oct 19 02:47:39 MDT 2021
+# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+# Start of session at: Mon Jul  4 12:48:27 2022
+# Process ID: 22434
+# Current directory: /home/angel/mil_tb/mil_tb.runs/synth_1
+# Command line: vivado -log mil_main.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source mil_main.tcl
+# Log file: /home/angel/mil_tb/mil_tb.runs/synth_1/mil_main.vds
+# Journal file: /home/angel/mil_tb/mil_tb.runs/synth_1/vivado.jou
+# Running On: angel-Inspiron-5567, OS: Linux, CPU Frequency: 2700.000 MHz, CPU Physical cores: 2, Host memory: 8231 MB
+#-----------------------------------------------------------
+source mil_main.tcl -notrace
+Command: read_checkpoint -auto_incremental -incremental /home/angel/mil_tb/mil_tb.srcs/utils_1/imports/synth_1/mil_main.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from /home/angel/mil_tb/mil_tb.srcs/utils_1/imports/synth_1/mil_main.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+Command: synth_design -top mil_main -part xc7k70tfbv676-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7k70t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7k70t'
+WARNING: [Designutils 20-4072] Reference run did not run incremental synthesis because the design is too small; reverting to default synthesis
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 22521
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2601.477 ; gain = 0.000 ; free physical = 531 ; free virtual = 11466
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'mil_main' [/home/angel/Documents/communication_controller/mil/mil_main.vhd:25]
+INFO: [Synth 8-3491] module 'scheduler' declared at '/home/angel/Documents/communication_controller/mil/scheduler.vhd:4' bound to instance 'sched0' of component 'scheduler' [/home/angel/Documents/communication_controller/mil/mil_main.vhd:103]
+INFO: [Synth 8-638] synthesizing module 'scheduler' [/home/angel/Documents/communication_controller/mil/scheduler.vhd:10]
+WARNING: [Synth 8-614] signal 'a' is read in the process but is not in the sensitivity list [/home/angel/Documents/communication_controller/mil/scheduler.vhd:14]
+WARNING: [Synth 8-614] signal 'b' is read in the process but is not in the sensitivity list [/home/angel/Documents/communication_controller/mil/scheduler.vhd:14]
+WARNING: [Synth 8-614] signal 'c' is read in the process but is not in the sensitivity list [/home/angel/Documents/communication_controller/mil/scheduler.vhd:14]
+INFO: [Synth 8-256] done synthesizing module 'scheduler' (1#1) [/home/angel/Documents/communication_controller/mil/scheduler.vhd:10]
+INFO: [Synth 8-3491] module 'mux' declared at '/home/angel/Documents/communication_controller/mil/mux.vhd:4' bound to instance 'mux0' of component 'mux' [/home/angel/Documents/communication_controller/mil/mil_main.vhd:104]
+INFO: [Synth 8-638] synthesizing module 'mux' [/home/angel/Documents/communication_controller/mil/mux.vhd:11]
+INFO: [Synth 8-256] done synthesizing module 'mux' (2#1) [/home/angel/Documents/communication_controller/mil/mux.vhd:11]
+	Parameter d_len bound to: 45 - type: integer 
+	Parameter q_len bound to: 45 - type: integer 
+INFO: [Synth 8-3491] module 'dff' declared at '/home/angel/Documents/communication_controller/mil/dff.vhd:4' bound to instance 'dff0' of component 'dff' [/home/angel/Documents/communication_controller/mil/mil_main.vhd:107]
+INFO: [Synth 8-638] synthesizing module 'dff' [/home/angel/Documents/communication_controller/mil/dff.vhd:12]
+	Parameter d_len bound to: 45 - type: integer 
+	Parameter q_len bound to: 45 - type: integer 
+INFO: [Synth 8-226] default block is never used [/home/angel/Documents/communication_controller/mil/dff.vhd:20]
+WARNING: [Synth 8-614] signal 'en' is read in the process but is not in the sensitivity list [/home/angel/Documents/communication_controller/mil/dff.vhd:16]
+INFO: [Synth 8-256] done synthesizing module 'dff' (3#1) [/home/angel/Documents/communication_controller/mil/dff.vhd:12]
+INFO: [Synth 8-3491] module 'fid_gen' declared at '/home/angel/Documents/communication_controller/mil/fid_gen.vhd:5' bound to instance 'fid_gen0' of component 'fid_gen' [/home/angel/Documents/communication_controller/mil/mil_main.vhd:110]
+INFO: [Synth 8-638] synthesizing module 'fid_gen' [/home/angel/Documents/communication_controller/mil/fid_gen.vhd:13]
+WARNING: [Synth 8-614] signal 'en' is read in the process but is not in the sensitivity list [/home/angel/Documents/communication_controller/mil/fid_gen.vhd:18]
+INFO: [Synth 8-256] done synthesizing module 'fid_gen' (4#1) [/home/angel/Documents/communication_controller/mil/fid_gen.vhd:13]
+	Parameter d_len bound to: 44 - type: integer 
+	Parameter q_len bound to: 44 - type: integer 
+INFO: [Synth 8-3491] module 'dff' declared at '/home/angel/Documents/communication_controller/mil/dff.vhd:4' bound to instance 'dff1' of component 'dff' [/home/angel/Documents/communication_controller/mil/mil_main.vhd:113]
+INFO: [Synth 8-638] synthesizing module 'dff__parameterized1' [/home/angel/Documents/communication_controller/mil/dff.vhd:12]
+	Parameter d_len bound to: 44 - type: integer 
+	Parameter q_len bound to: 44 - type: integer 
+INFO: [Synth 8-226] default block is never used [/home/angel/Documents/communication_controller/mil/dff.vhd:20]
+WARNING: [Synth 8-614] signal 'en' is read in the process but is not in the sensitivity list [/home/angel/Documents/communication_controller/mil/dff.vhd:16]
+INFO: [Synth 8-256] done synthesizing module 'dff__parameterized1' (4#1) [/home/angel/Documents/communication_controller/mil/dff.vhd:12]
+INFO: [Synth 8-3491] module 'encoder' declared at '/home/angel/Documents/communication_controller/mil/encoder.vhd:5' bound to instance 'encoder0' of component 'encoder' [/home/angel/Documents/communication_controller/mil/mil_main.vhd:116]
+INFO: [Synth 8-638] synthesizing module 'encoder' [/home/angel/Documents/communication_controller/mil/encoder.vhd:12]
+WARNING: [Synth 8-614] signal 'en' is read in the process but is not in the sensitivity list [/home/angel/Documents/communication_controller/mil/encoder.vhd:14]
+INFO: [Synth 8-256] done synthesizing module 'encoder' (5#1) [/home/angel/Documents/communication_controller/mil/encoder.vhd:12]
+	Parameter d_len bound to: 55 - type: integer 
+	Parameter q_len bound to: 55 - type: integer 
+INFO: [Synth 8-3491] module 'dff' declared at '/home/angel/Documents/communication_controller/mil/dff.vhd:4' bound to instance 'dff2' of component 'dff' [/home/angel/Documents/communication_controller/mil/mil_main.vhd:119]
+INFO: [Synth 8-638] synthesizing module 'dff__parameterized3' [/home/angel/Documents/communication_controller/mil/dff.vhd:12]
+	Parameter d_len bound to: 55 - type: integer 
+	Parameter q_len bound to: 55 - type: integer 
+INFO: [Synth 8-226] default block is never used [/home/angel/Documents/communication_controller/mil/dff.vhd:20]
+WARNING: [Synth 8-614] signal 'en' is read in the process but is not in the sensitivity list [/home/angel/Documents/communication_controller/mil/dff.vhd:16]
+INFO: [Synth 8-256] done synthesizing module 'dff__parameterized3' (5#1) [/home/angel/Documents/communication_controller/mil/dff.vhd:12]
+	Parameter d_len bound to: 55 - type: integer 
+	Parameter q_len bound to: 55 - type: integer 
+INFO: [Synth 8-3491] module 'dff' declared at '/home/angel/Documents/communication_controller/mil/dff.vhd:4' bound to instance 'dff3' of component 'dff' [/home/angel/Documents/communication_controller/mil/mil_main.vhd:126]
+INFO: [Synth 8-3491] module 'error_detect' declared at '/home/angel/Documents/communication_controller/mil/error_detection.vhd:4' bound to instance 'error_detect0' of component 'error_detect' [/home/angel/Documents/communication_controller/mil/mil_main.vhd:129]
+INFO: [Synth 8-638] synthesizing module 'error_detect' [/home/angel/Documents/communication_controller/mil/error_detection.vhd:12]
+INFO: [Synth 8-3491] module 'dff' declared at '/home/angel/Documents/communication_controller/mil/dff.vhd:4' bound to instance 'dff0' of component 'dff' [/home/angel/Documents/communication_controller/mil/error_detection.vhd:57]
+INFO: [Synth 8-638] synthesizing module 'dff__parameterized5' [/home/angel/Documents/communication_controller/mil/dff.vhd:12]
+	Parameter d_len bound to: 5 - type: integer 
+	Parameter q_len bound to: 5 - type: integer 
+INFO: [Synth 8-226] default block is never used [/home/angel/Documents/communication_controller/mil/dff.vhd:20]
+WARNING: [Synth 8-614] signal 'en' is read in the process but is not in the sensitivity list [/home/angel/Documents/communication_controller/mil/dff.vhd:16]
+INFO: [Synth 8-256] done synthesizing module 'dff__parameterized5' (5#1) [/home/angel/Documents/communication_controller/mil/dff.vhd:12]
+INFO: [Synth 8-3491] module 'dff' declared at '/home/angel/Documents/communication_controller/mil/dff.vhd:4' bound to instance 'dff1' of component 'dff' [/home/angel/Documents/communication_controller/mil/error_detection.vhd:58]
+INFO: [Synth 8-3491] module 'dff' declared at '/home/angel/Documents/communication_controller/mil/dff.vhd:4' bound to instance 'dff2' of component 'dff' [/home/angel/Documents/communication_controller/mil/error_detection.vhd:59]
+INFO: [Synth 8-3491] module 'dff' declared at '/home/angel/Documents/communication_controller/mil/dff.vhd:4' bound to instance 'dff3' of component 'dff' [/home/angel/Documents/communication_controller/mil/error_detection.vhd:60]
+INFO: [Synth 8-3491] module 'dff' declared at '/home/angel/Documents/communication_controller/mil/dff.vhd:4' bound to instance 'dff4' of component 'dff' [/home/angel/Documents/communication_controller/mil/error_detection.vhd:61]
+INFO: [Synth 8-3491] module 'dff' declared at '/home/angel/Documents/communication_controller/mil/dff.vhd:4' bound to instance 'dff5' of component 'dff' [/home/angel/Documents/communication_controller/mil/error_detection.vhd:62]
+INFO: [Synth 8-3491] module 'dff' declared at '/home/angel/Documents/communication_controller/mil/dff.vhd:4' bound to instance 'dff6' of component 'dff' [/home/angel/Documents/communication_controller/mil/error_detection.vhd:63]
+INFO: [Synth 8-3491] module 'dff' declared at '/home/angel/Documents/communication_controller/mil/dff.vhd:4' bound to instance 'dff7' of component 'dff' [/home/angel/Documents/communication_controller/mil/error_detection.vhd:64]
+INFO: [Synth 8-3491] module 'dff' declared at '/home/angel/Documents/communication_controller/mil/dff.vhd:4' bound to instance 'dff8' of component 'dff' [/home/angel/Documents/communication_controller/mil/error_detection.vhd:65]
+INFO: [Synth 8-3491] module 'dff' declared at '/home/angel/Documents/communication_controller/mil/dff.vhd:4' bound to instance 'dff9' of component 'dff' [/home/angel/Documents/communication_controller/mil/error_detection.vhd:66]
+INFO: [Synth 8-3491] module 'dff' declared at '/home/angel/Documents/communication_controller/mil/dff.vhd:4' bound to instance 'dff10' of component 'dff' [/home/angel/Documents/communication_controller/mil/error_detection.vhd:67]
+INFO: [Synth 8-3491] module 'comparator' declared at '/home/angel/Documents/communication_controller/mil/comparator.vhd:5' bound to instance 'comp0' of component 'comparator' [/home/angel/Documents/communication_controller/mil/error_detection.vhd:70]
+INFO: [Synth 8-638] synthesizing module 'comparator' [/home/angel/Documents/communication_controller/mil/comparator.vhd:12]
+WARNING: [Synth 8-614] signal 'en' is read in the process but is not in the sensitivity list [/home/angel/Documents/communication_controller/mil/comparator.vhd:14]
+INFO: [Synth 8-256] done synthesizing module 'comparator' (6#1) [/home/angel/Documents/communication_controller/mil/comparator.vhd:12]
+INFO: [Synth 8-3491] module 'comparator' declared at '/home/angel/Documents/communication_controller/mil/comparator.vhd:5' bound to instance 'comp1' of component 'comparator' [/home/angel/Documents/communication_controller/mil/error_detection.vhd:71]
+INFO: [Synth 8-3491] module 'comparator' declared at '/home/angel/Documents/communication_controller/mil/comparator.vhd:5' bound to instance 'comp2' of component 'comparator' [/home/angel/Documents/communication_controller/mil/error_detection.vhd:72]
+INFO: [Synth 8-3491] module 'comparator' declared at '/home/angel/Documents/communication_controller/mil/comparator.vhd:5' bound to instance 'comp3' of component 'comparator' [/home/angel/Documents/communication_controller/mil/error_detection.vhd:73]
+INFO: [Synth 8-3491] module 'comparator' declared at '/home/angel/Documents/communication_controller/mil/comparator.vhd:5' bound to instance 'comp4' of component 'comparator' [/home/angel/Documents/communication_controller/mil/error_detection.vhd:74]
+INFO: [Synth 8-3491] module 'comparator' declared at '/home/angel/Documents/communication_controller/mil/comparator.vhd:5' bound to instance 'comp5' of component 'comparator' [/home/angel/Documents/communication_controller/mil/error_detection.vhd:75]
+INFO: [Synth 8-3491] module 'comparator' declared at '/home/angel/Documents/communication_controller/mil/comparator.vhd:5' bound to instance 'comp6' of component 'comparator' [/home/angel/Documents/communication_controller/mil/error_detection.vhd:76]
+INFO: [Synth 8-3491] module 'comparator' declared at '/home/angel/Documents/communication_controller/mil/comparator.vhd:5' bound to instance 'comp7' of component 'comparator' [/home/angel/Documents/communication_controller/mil/error_detection.vhd:77]
+INFO: [Synth 8-3491] module 'comparator' declared at '/home/angel/Documents/communication_controller/mil/comparator.vhd:5' bound to instance 'comp8' of component 'comparator' [/home/angel/Documents/communication_controller/mil/error_detection.vhd:78]
+INFO: [Synth 8-3491] module 'comparator' declared at '/home/angel/Documents/communication_controller/mil/comparator.vhd:5' bound to instance 'comp9' of component 'comparator' [/home/angel/Documents/communication_controller/mil/error_detection.vhd:79]
+INFO: [Synth 8-3491] module 'comparator' declared at '/home/angel/Documents/communication_controller/mil/comparator.vhd:5' bound to instance 'comp10' of component 'comparator' [/home/angel/Documents/communication_controller/mil/error_detection.vhd:80]
+INFO: [Synth 8-256] done synthesizing module 'error_detect' (7#1) [/home/angel/Documents/communication_controller/mil/error_detection.vhd:12]
+	Parameter d_len bound to: 55 - type: integer 
+	Parameter q_len bound to: 55 - type: integer 
+INFO: [Synth 8-3491] module 'dff' declared at '/home/angel/Documents/communication_controller/mil/dff.vhd:4' bound to instance 'dff4' of component 'dff' [/home/angel/Documents/communication_controller/mil/mil_main.vhd:132]
+INFO: [Synth 8-3491] module 'decoder' declared at '/home/angel/Documents/communication_controller/mil/decoder.vhd:5' bound to instance 'decoder0' of component 'decoder' [/home/angel/Documents/communication_controller/mil/mil_main.vhd:138]
+INFO: [Synth 8-638] synthesizing module 'decoder' [/home/angel/Documents/communication_controller/mil/decoder.vhd:12]
+WARNING: [Synth 8-614] signal 'en' is read in the process but is not in the sensitivity list [/home/angel/Documents/communication_controller/mil/decoder.vhd:14]
+INFO: [Synth 8-256] done synthesizing module 'decoder' (8#1) [/home/angel/Documents/communication_controller/mil/decoder.vhd:12]
+	Parameter d_len bound to: 44 - type: integer 
+	Parameter q_len bound to: 44 - type: integer 
+INFO: [Synth 8-3491] module 'dff' declared at '/home/angel/Documents/communication_controller/mil/dff.vhd:4' bound to instance 'dff5' of component 'dff' [/home/angel/Documents/communication_controller/mil/mil_main.vhd:141]
+INFO: [Synth 8-3491] module 'demux' declared at '/home/angel/Documents/communication_controller/mil/demux.vhd:4' bound to instance 'demux0' of component 'demux' [/home/angel/Documents/communication_controller/mil/mil_main.vhd:147]
+INFO: [Synth 8-638] synthesizing module 'demux' [/home/angel/Documents/communication_controller/mil/demux.vhd:11]
+WARNING: [Synth 8-614] signal 'input' is read in the process but is not in the sensitivity list [/home/angel/Documents/communication_controller/mil/demux.vhd:14]
+INFO: [Synth 8-256] done synthesizing module 'demux' (9#1) [/home/angel/Documents/communication_controller/mil/demux.vhd:11]
+INFO: [Synth 8-256] done synthesizing module 'mil_main' (10#1) [/home/angel/Documents/communication_controller/mil/mil_main.vhd:25]
+WARNING: [Synth 8-7129] Port input[44] in module fid_gen is either unconnected or has no load
+WARNING: [Synth 8-7129] Port input[43] in module fid_gen is either unconnected or has no load
+WARNING: [Synth 8-7129] Port input[42] in module fid_gen is either unconnected or has no load
+WARNING: [Synth 8-7129] Port input[41] in module fid_gen is either unconnected or has no load
+WARNING: [Synth 8-7129] Port input[40] in module fid_gen is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 2601.477 ; gain = 0.000 ; free physical = 1170 ; free virtual = 12037
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2601.477 ; gain = 0.000 ; free physical = 1174 ; free virtual = 12041
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7k70tfbv676-1
+INFO: [Device 21-403] Loading part xc7k70tfbv676-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2609.336 ; gain = 7.859 ; free physical = 1174 ; free virtual = 12041
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+INFO: [Common 17-14] Message 'Synth 8-7134' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:28 ; elapsed = 00:00:26 . Memory (MB): peak = 2609.336 ; gain = 7.859 ; free physical = 905 ; free virtual = 11774
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input    6 Bit       Adders := 2     
++---Registers : 
+	                6 Bit    Registers := 1     
++---Muxes : 
+	   4 Input   45 Bit        Muxes := 2     
+	   4 Input   44 Bit        Muxes := 3     
+	   2 Input   19 Bit        Muxes := 11    
+	   2 Input   18 Bit        Muxes := 11    
+	   2 Input   17 Bit        Muxes := 11    
+	   2 Input   16 Bit        Muxes := 11    
+	   2 Input   15 Bit        Muxes := 11    
+	   2 Input   14 Bit        Muxes := 11    
+	   2 Input   13 Bit        Muxes := 11    
+	   2 Input   12 Bit        Muxes := 11    
+	   2 Input   11 Bit        Muxes := 11    
+	   2 Input   10 Bit        Muxes := 11    
+	   2 Input    9 Bit        Muxes := 11    
+	   2 Input    8 Bit        Muxes := 11    
+	   2 Input    7 Bit        Muxes := 11    
+	   2 Input    6 Bit        Muxes := 11    
+	   2 Input    5 Bit        Muxes := 524   
+	 121 Input    5 Bit        Muxes := 1     
+	   4 Input    5 Bit        Muxes := 2     
+	   6 Input    5 Bit        Muxes := 1     
+	 136 Input    5 Bit        Muxes := 10    
+	  16 Input    5 Bit        Muxes := 12    
+	   2 Input    4 Bit        Muxes := 518   
+	   3 Input    4 Bit        Muxes := 88    
+	  16 Input    4 Bit        Muxes := 1     
+	   2 Input    3 Bit        Muxes := 44    
+	   2 Input    2 Bit        Muxes := 22    
+	   2 Input    1 Bit        Muxes := 29    
+	  16 Input    1 Bit        Muxes := 22    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-3332] Sequential element (output_regi_55) is unused and will be removed from module encoder.
+WARNING: [Synth 8-3332] Sequential element (output_regi_10) is unused and will be removed from module error_detect.
+WARNING: [Synth 8-3332] Sequential element (output_regi_22) is unused and will be removed from module error_detect.
+WARNING: [Synth 8-3332] Sequential element (output_regi_36) is unused and will be removed from module error_detect.
+WARNING: [Synth 8-3332] Sequential element (output_regi_50) is unused and will be removed from module error_detect.
+WARNING: [Synth 8-3332] Sequential element (output_regi_64) is unused and will be removed from module error_detect.
+WARNING: [Synth 8-3332] Sequential element (output_regi_78) is unused and will be removed from module error_detect.
+WARNING: [Synth 8-3332] Sequential element (output_regi_92) is unused and will be removed from module error_detect.
+WARNING: [Synth 8-3332] Sequential element (output_regi_106) is unused and will be removed from module error_detect.
+WARNING: [Synth 8-3332] Sequential element (output_regi_120) is unused and will be removed from module error_detect.
+WARNING: [Synth 8-3332] Sequential element (output_regi_134) is unused and will be removed from module error_detect.
+WARNING: [Synth 8-3332] Sequential element (output_regi_148) is unused and will be removed from module error_detect.
+WARNING: [Synth 8-3332] Sequential element (i_26) is unused and will be removed from module error_detect.
+WARNING: [Synth 8-3332] Sequential element (output_regi_44) is unused and will be removed from module decoder.
+WARNING: [Synth 8-3332] Sequential element (output_regi_61) is unused and will be removed from module encoder.
+WARNING: [Synth 8-3332] Sequential element (output_regi_66) is unused and will be removed from module encoder.
+WARNING: [Synth 8-3332] Sequential element (output_regi_71) is unused and will be removed from module encoder.
+WARNING: [Synth 8-3332] Sequential element (output_regi_76) is unused and will be removed from module encoder.
+WARNING: [Synth 8-3332] Sequential element (output_regi_81) is unused and will be removed from module encoder.
+WARNING: [Synth 8-3332] Sequential element (output_regi_86) is unused and will be removed from module encoder.
+WARNING: [Synth 8-3332] Sequential element (output_regi_91) is unused and will be removed from module encoder.
+WARNING: [Synth 8-3332] Sequential element (output_regi_96) is unused and will be removed from module encoder.
+WARNING: [Synth 8-3332] Sequential element (output_regi_101) is unused and will be removed from module encoder.
+WARNING: [Synth 8-3332] Sequential element (output_regi_49) is unused and will be removed from module decoder.
+WARNING: [Synth 8-3332] Sequential element (output_regi_55) is unused and will be removed from module decoder.
+WARNING: [Synth 8-3332] Sequential element (output_regi_57) is unused and will be removed from module decoder.
+WARNING: [Synth 8-3332] Sequential element (output_regi_61) is unused and will be removed from module decoder.
+WARNING: [Synth 8-3332] Sequential element (output_regi_65) is unused and will be removed from module decoder.
+WARNING: [Synth 8-3332] Sequential element (output_regi_69) is unused and will be removed from module decoder.
+WARNING: [Synth 8-3332] Sequential element (output_regi_73) is unused and will be removed from module decoder.
+WARNING: [Synth 8-3332] Sequential element (output_regi_77) is unused and will be removed from module decoder.
+WARNING: [Synth 8-3332] Sequential element (output_regi_81) is unused and will be removed from module decoder.
+WARNING: [Synth 8-3332] Sequential element (output_regi_106) is unused and will be removed from module encoder.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:19 ; elapsed = 00:01:19 . Memory (MB): peak = 2609.336 ; gain = 7.859 ; free physical = 869 ; free virtual = 11747
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:01:20 ; elapsed = 00:01:19 . Memory (MB): peak = 2609.336 ; gain = 7.859 ; free physical = 869 ; free virtual = 11747
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:01:20 ; elapsed = 00:01:19 . Memory (MB): peak = 2609.336 ; gain = 7.859 ; free physical = 871 ; free virtual = 11749
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:25 ; elapsed = 00:01:24 . Memory (MB): peak = 2609.336 ; gain = 7.859 ; free physical = 870 ; free virtual = 11748
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:25 ; elapsed = 00:01:24 . Memory (MB): peak = 2609.336 ; gain = 7.859 ; free physical = 870 ; free virtual = 11748
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:25 ; elapsed = 00:01:24 . Memory (MB): peak = 2609.336 ; gain = 7.859 ; free physical = 870 ; free virtual = 11748
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:25 ; elapsed = 00:01:24 . Memory (MB): peak = 2609.336 ; gain = 7.859 ; free physical = 870 ; free virtual = 11748
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:25 ; elapsed = 00:01:24 . Memory (MB): peak = 2609.336 ; gain = 7.859 ; free physical = 870 ; free virtual = 11748
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:25 ; elapsed = 00:01:24 . Memory (MB): peak = 2609.336 ; gain = 7.859 ; free physical = 870 ; free virtual = 11748
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+------+------+
+|      |Cell  |Count |
++------+------+------+
+|1     |BUFG  |     1|
+|2     |LUT1  |     6|
+|3     |LUT2  |    96|
+|4     |LUT3  |    14|
+|5     |LUT4  |    34|
+|6     |LUT5  |    77|
+|7     |LUT6  |    93|
+|8     |FDCE  |   349|
+|9     |FDRE  |   215|
+|10    |IBUF  |   177|
+|11    |OBUF  |    56|
+|12    |OBUFT |   132|
++------+------+------+
+
+Report Instance Areas: 
++------+----------------+-----------------------+------+
+|      |Instance        |Module                 |Cells |
++------+----------------+-----------------------+------+
+|1     |top             |                       |  1250|
+|2     |  decoder0      |decoder                |    48|
+|3     |  dff0          |dff                    |    41|
+|4     |  dff1          |dff__parameterized1    |    88|
+|5     |  dff2          |dff__parameterized3    |    55|
+|6     |  dff3          |dff__parameterized3_0  |    56|
+|7     |  dff4          |dff__parameterized3_1  |   105|
+|8     |  dff5          |dff__parameterized1_2  |    50|
+|9     |  encoder0      |encoder                |    55|
+|10    |  error_detect0 |error_detect           |   201|
+|11    |    comp0       |comparator             |    12|
+|12    |    comp1       |comparator_3           |    12|
+|13    |    comp10      |comparator_4           |    12|
+|14    |    comp2       |comparator_5           |    13|
+|15    |    comp3       |comparator_6           |    12|
+|16    |    comp4       |comparator_7           |    12|
+|17    |    comp5       |comparator_8           |    12|
+|18    |    comp6       |comparator_9           |    12|
+|19    |    comp7       |comparator_10          |    12|
+|20    |    comp8       |comparator_11          |    12|
+|21    |    comp9       |comparator_12          |    12|
+|22    |    dff0        |dff__parameterized5    |     6|
+|23    |    dff1        |dff__parameterized5_13 |     6|
+|24    |    dff10       |dff__parameterized5_14 |     6|
+|25    |    dff2        |dff__parameterized5_15 |     6|
+|26    |    dff3        |dff__parameterized5_16 |     6|
+|27    |    dff4        |dff__parameterized5_17 |     8|
+|28    |    dff5        |dff__parameterized5_18 |     6|
+|29    |    dff6        |dff__parameterized5_19 |     6|
+|30    |    dff7        |dff__parameterized5_20 |     6|
+|31    |    dff8        |dff__parameterized5_21 |     6|
+|32    |    dff9        |dff__parameterized5_22 |     6|
+|33    |  fid_gen0      |fid_gen                |    98|
+|34    |  sched0        |scheduler              |    85|
++------+----------------+-----------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:25 ; elapsed = 00:01:24 . Memory (MB): peak = 2609.336 ; gain = 7.859 ; free physical = 870 ; free virtual = 11748
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 200 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:25 ; elapsed = 00:01:24 . Memory (MB): peak = 2609.336 ; gain = 7.859 ; free physical = 873 ; free virtual = 11752
+Synthesis Optimization Complete : Time (s): cpu = 00:01:25 ; elapsed = 00:01:24 . Memory (MB): peak = 2609.344 ; gain = 7.859 ; free physical = 873 ; free virtual = 11752
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2609.344 ; gain = 0.000 ; free physical = 960 ; free virtual = 11838
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2633.348 ; gain = 0.000 ; free physical = 893 ; free virtual = 11771
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete, checksum: 28aec06f
+INFO: [Common 17-83] Releasing license: Synthesis
+79 Infos, 152 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:33 ; elapsed = 00:01:26 . Memory (MB): peak = 2633.348 ; gain = 32.016 ; free physical = 1104 ; free virtual = 11982
+INFO: [Common 17-1381] The checkpoint '/home/angel/mil_tb/mil_tb.runs/synth_1/mil_main.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file mil_main_utilization_synth.rpt -pb mil_main_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Mon Jul  4 12:50:08 2022...

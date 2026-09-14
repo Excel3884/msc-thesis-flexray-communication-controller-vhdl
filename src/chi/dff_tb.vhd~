@@ -1,0 +1,32 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+ENTITY testbench IS
+END testbench;
+
+ARCHITECTURE tb OF testbench IS
+  SIGNAL d : std_logic;
+  SIGNAL q : std_logic;
+  SIGNAL clk : std_logic := '0';
+  SIGNAL rst : std_logic;
+  SIGNAL en : std_logic;
+BEGIN
+  df0: ENTITY work.dff PORT MAP (d => d, q => q, clk => clk, rst => rst, en => en);
+
+  clk <= NOT clk AFTER 10 ns;
+
+  PROCESS 
+  BEGIN
+    en <= '0';
+    d <= '1';
+    rst <= '0';
+    WAIT FOR 25 ns;
+    en <= '1';
+    d <= '1';
+    rst <= '0';
+    WAIT FOR 25 ns;
+        
+
+
+
+END tb;

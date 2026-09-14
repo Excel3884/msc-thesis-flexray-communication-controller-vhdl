@@ -1,0 +1,26 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+ENTITY scheduler IS
+  PORT (a, b, c : IN  std_logic;
+        s1, s0  : OUT std_logic);
+
+END scheduler;
+
+ARCHITECTURE default OF scheduler IS
+  SIGNAL check_null : std_logic;
+BEGIN
+  check_null <= a OR b OR c;
+  PROCESS(check_null)
+  BEGIN
+    CASE check_null IS
+      WHEN '0' =>
+        s1 <= 'Z';
+        s0 <= 'Z';
+      WHEN OTHERS =>
+        s1 <= a;
+        s0 <= a OR ((NOT a) AND (NOT b) AND c);
+    END CASE;
+  END PROCESS;
+
+END default;

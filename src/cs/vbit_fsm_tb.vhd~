@@ -1,0 +1,15 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+
+ENTITY testbench IS
+END testbench;
+
+ARCHITECTURE tb OF testbench IS
+  SIGNAL buffer_inv : std_logic;
+  SIGNAL validity_bit : std_logic;
+  SIGNAL clk : std_logic := '0';
+  SIGNAL rst : std_logic;
+  SIGNAL curr_state : std_logic_vector(1 DOWNTO 0);
+BEGIN
+
+  

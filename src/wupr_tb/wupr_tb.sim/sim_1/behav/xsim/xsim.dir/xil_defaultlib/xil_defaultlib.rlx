@@ -1,0 +1,8 @@
+0.7
+2020.2
+Oct 19 2021
+02:56:52
+/home/angel/Documents/communication_controller/wup_recognition/dff.vhd,1649232819,vhdl,,,,dff,,,,,,,,
+/home/angel/Documents/communication_controller/wup_recognition/wupr_fsm.vhd,1649237031,vhdl,,,,wupr_fsm,,,,,,,,
+/home/angel/Documents/communication_controller/wup_recognition/wupr_main.vhd,1649426525,vhdl,/home/angel/Documents/communication_controller/wup_recognition/wupr_main_tb.vhd,,,wupr_main,,,,,,,,
+/home/angel/Documents/communication_controller/wup_recognition/wupr_main_tb.vhd,1649426224,vhdl,,,,testbench,,,,,,,,

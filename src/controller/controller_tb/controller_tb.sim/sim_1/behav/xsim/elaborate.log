@@ -1,0 +1,50 @@
+Vivado Simulator v2021.2
+Copyright 1986-1999, 2001-2021 Xilinx, Inc. All Rights Reserved.
+Running: /tools/Xilinx/Vivado/2021.2/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot testbench_behav xil_defaultlib.testbench -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package xil_defaultlib.encoding
+Compiling architecture default of entity xil_defaultlib.dff [\dff(d_len=2,q_len=2)\]
+Compiling architecture default of entity xil_defaultlib.dff [\dff(d_len=50,q_len=50)\]
+Compiling architecture default of entity xil_defaultlib.dff [\dff(d_len=45,q_len=45)\]
+Compiling architecture chi_interface of entity xil_defaultlib.chi [chi_default]
+Compiling architecture default of entity xil_defaultlib.dff [\dff(d_len=3,q_len=3)\]
+Compiling architecture fsm_default of entity xil_defaultlib.fsm [fsm_default]
+Compiling architecture pmm_arch of entity xil_defaultlib.pmm [pmm_default]
+Compiling architecture default of entity xil_defaultlib.srff [srff_default]
+Compiling architecture default of entity xil_defaultlib.tri_state_buffer [tri_state_buffer_default]
+Compiling architecture default of entity xil_defaultlib.micro_counter [micro_counter_default]
+Compiling architecture default of entity xil_defaultlib.dff [\dff(d_len=4,q_len=4)\]
+Compiling architecture default of entity xil_defaultlib.micro_comparator [micro_comparator_default]
+Compiling architecture default of entity xil_defaultlib.vbit_fsm [vbit_fsm_default]
+Compiling architecture default of entity xil_defaultlib.microtick_counter [microtick_counter_default]
+Compiling architecture default of entity xil_defaultlib.scheduler [scheduler_default]
+Compiling architecture default of entity xil_defaultlib.mux [mux_default]
+Compiling architecture default of entity xil_defaultlib.fid_gen [fid_gen_default]
+Compiling architecture default of entity xil_defaultlib.dff [\dff(d_len=44,q_len=44)\]
+Compiling architecture default of entity xil_defaultlib.encoder [encoder_default]
+Compiling architecture default of entity xil_defaultlib.dff [\dff(d_len=55,q_len=55)\]
+Compiling architecture default of entity xil_defaultlib.dff [\dff(d_len=5,q_len=5)\]
+Compiling architecture default of entity xil_defaultlib.comparator [comparator_default]
+Compiling architecture default of entity xil_defaultlib.error_detect [error_detect_default]
+Compiling architecture default of entity xil_defaultlib.decoder [decoder_default]
+Compiling architecture default of entity xil_defaultlib.demux [demux_default]
+Compiling architecture default of entity xil_defaultlib.mil_main [mil_main_default]
+Compiling architecture default of entity xil_defaultlib.wupr_fsm [wupr_fsm_default]
+Compiling architecture default of entity xil_defaultlib.wupr_main [wupr_main_default]
+Compiling architecture default of entity xil_defaultlib.counter [counter_default]
+Compiling architecture default of entity xil_defaultlib.rom [rom_default]
+Compiling architecture default of entity xil_defaultlib.dff [dff_default]
+Compiling architecture default of entity xil_defaultlib.wupg_mux [wupg_mux_default]
+Compiling architecture default of entity xil_defaultlib.wupg_main [wupg_main_default]
+Compiling architecture default of entity xil_defaultlib.controller [controller_default]
+Compiling architecture tb of entity xil_defaultlib.testbench
+Built simulation snapshot testbench_behav

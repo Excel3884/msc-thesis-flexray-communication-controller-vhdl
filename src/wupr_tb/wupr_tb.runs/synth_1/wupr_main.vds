@@ -1,0 +1,219 @@
+#-----------------------------------------------------------
+# Vivado v2021.2 (64-bit)
+# SW Build 3367213 on Tue Oct 19 02:47:39 MDT 2021
+# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+# Start of session at: Mon Jul  4 12:16:46 2022
+# Process ID: 6791
+# Current directory: /home/angel/wupr_tb/wupr_tb.runs/synth_1
+# Command line: vivado -log wupr_main.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source wupr_main.tcl
+# Log file: /home/angel/wupr_tb/wupr_tb.runs/synth_1/wupr_main.vds
+# Journal file: /home/angel/wupr_tb/wupr_tb.runs/synth_1/vivado.jou
+# Running On: angel-Inspiron-5567, OS: Linux, CPU Frequency: 2700.000 MHz, CPU Physical cores: 2, Host memory: 8231 MB
+#-----------------------------------------------------------
+source wupr_main.tcl -notrace
+Command: synth_design -top wupr_main -part xc7k70tfbv676-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7k70t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7k70t'
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 6880
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2601.477 ; gain = 0.000 ; free physical = 134 ; free virtual = 11840
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'wupr_main' [/home/angel/Documents/communication_controller/wup_recognition/wupr_main.vhd:10]
+	Parameter d_len bound to: 4 - type: integer 
+	Parameter q_len bound to: 4 - type: integer 
+INFO: [Synth 8-3491] module 'dff' declared at '/home/angel/Documents/communication_controller/wup_recognition/dff.vhd:4' bound to instance 'reg0' of component 'dff' [/home/angel/Documents/communication_controller/wup_recognition/wupr_main.vhd:36]
+INFO: [Synth 8-638] synthesizing module 'dff' [/home/angel/Documents/communication_controller/wup_recognition/dff.vhd:12]
+	Parameter d_len bound to: 4 - type: integer 
+	Parameter q_len bound to: 4 - type: integer 
+INFO: [Synth 8-226] default block is never used [/home/angel/Documents/communication_controller/wup_recognition/dff.vhd:20]
+WARNING: [Synth 8-614] signal 'en' is read in the process but is not in the sensitivity list [/home/angel/Documents/communication_controller/wup_recognition/dff.vhd:16]
+INFO: [Synth 8-256] done synthesizing module 'dff' (1#1) [/home/angel/Documents/communication_controller/wup_recognition/dff.vhd:12]
+INFO: [Synth 8-3491] module 'wupr_fsm' declared at '/home/angel/Documents/communication_controller/wup_recognition/wupr_fsm.vhd:5' bound to instance 'wupr_fsm0' of component 'wupr_fsm' [/home/angel/Documents/communication_controller/wup_recognition/wupr_main.vhd:38]
+INFO: [Synth 8-638] synthesizing module 'wupr_fsm' [/home/angel/Documents/communication_controller/wup_recognition/wupr_fsm.vhd:17]
+INFO: [Synth 8-256] done synthesizing module 'wupr_fsm' (2#1) [/home/angel/Documents/communication_controller/wup_recognition/wupr_fsm.vhd:17]
+INFO: [Synth 8-256] done synthesizing module 'wupr_main' (3#1) [/home/angel/Documents/communication_controller/wup_recognition/wupr_main.vhd:10]
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 2601.477 ; gain = 0.000 ; free physical = 252 ; free virtual = 11553
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2601.477 ; gain = 0.000 ; free physical = 246 ; free virtual = 11547
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7k70tfbv676-1
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7k70tfbv676-1
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2609.336 ; gain = 7.859 ; free physical = 245 ; free virtual = 11546
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'prv_state_reg' in module 'wupr_fsm'
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-7134] Asynchronous Set/Reset value of 'Z' to reg 'q_reg' will be ignored
+WARNING: [Synth 8-327] inferring latch for variable 'FSM_sequential_nxt_state_reg' [/home/angel/Documents/communication_controller/wup_recognition/wupr_fsm.vhd:31]
+WARNING: [Synth 8-327] inferring latch for variable 'FSM_onehot_nxt_state_reg' [/home/angel/Documents/communication_controller/wup_recognition/wupr_fsm.vhd:31]
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                      m0 |                            00001 |                              000
+                      m1 |                            00010 |                              001
+                      m2 |                            00100 |                              010
+                      m3 |                            01000 |                              011
+                      m4 |                            10000 |                              100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'prv_state_reg' using encoding 'one-hot' in module 'wupr_fsm'
+WARNING: [Synth 8-327] inferring latch for variable 'FSM_onehot_nxt_state_reg' [/home/angel/Documents/communication_controller/wup_recognition/wupr_fsm.vhd:31]
+WARNING: [Synth 8-327] inferring latch for variable 'temp_wup_found_reg' [/home/angel/Documents/communication_controller/wup_recognition/wupr_fsm.vhd:30]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2609.336 ; gain = 7.859 ; free physical = 1098 ; free virtual = 12400
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   5 Input    5 Bit        Muxes := 1     
+	   2 Input    5 Bit        Muxes := 3     
+	   5 Input    3 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 5     
+	   5 Input    1 Bit        Muxes := 3     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-3332] Sequential element (wupr_fsm0/FSM_onehot_prv_state_reg[3]) is unused and will be removed from module wupr_main.
+WARNING: [Synth 8-3332] Sequential element (wupr_fsm0/FSM_onehot_prv_state_reg[1]) is unused and will be removed from module wupr_main.
+WARNING: [Synth 8-3332] Sequential element (wupr_fsm0/FSM_onehot_prv_state_reg[0]) is unused and will be removed from module wupr_main.
+WARNING: [Synth 8-3332] Sequential element (wupr_fsm0/FSM_onehot_nxt_state_reg[3]) is unused and will be removed from module wupr_main.
+WARNING: [Synth 8-3332] Sequential element (wupr_fsm0/FSM_onehot_nxt_state_reg[1]) is unused and will be removed from module wupr_main.
+WARNING: [Synth 8-3332] Sequential element (wupr_fsm0/FSM_onehot_nxt_state_reg[0]) is unused and will be removed from module wupr_main.
+WARNING: [Synth 8-3332] Sequential element (wupr_fsm0/temp_wup_found_reg) is unused and will be removed from module wupr_main.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 2609.336 ; gain = 7.859 ; free physical = 923 ; free virtual = 12228
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 2609.336 ; gain = 7.859 ; free physical = 920 ; free virtual = 12225
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 2609.336 ; gain = 7.859 ; free physical = 921 ; free virtual = 12226
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2609.336 ; gain = 7.859 ; free physical = 920 ; free virtual = 12225
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2609.336 ; gain = 7.859 ; free physical = 920 ; free virtual = 12225
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2609.336 ; gain = 7.859 ; free physical = 920 ; free virtual = 12225
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2609.336 ; gain = 7.859 ; free physical = 920 ; free virtual = 12225
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2609.336 ; gain = 7.859 ; free physical = 920 ; free virtual = 12225
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2609.336 ; gain = 7.859 ; free physical = 920 ; free virtual = 12225
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-----+------+
+|      |Cell |Count |
++------+-----+------+
+|1     |OBUF |     1|
++------+-----+------+
+
+Report Instance Areas: 
++------+---------+-------+------+
+|      |Instance |Module |Cells |
++------+---------+-------+------+
+|1     |top      |       |     1|
++------+---------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2609.336 ; gain = 7.859 ; free physical = 920 ; free virtual = 12225
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 17 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2609.336 ; gain = 7.859 ; free physical = 920 ; free virtual = 12225
+Synthesis Optimization Complete : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2609.344 ; gain = 7.859 ; free physical = 920 ; free virtual = 12225
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2609.344 ; gain = 0.000 ; free physical = 1007 ; free virtual = 12312
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2609.344 ; gain = 0.000 ; free physical = 914 ; free virtual = 12219
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete, checksum: a4d131b
+INFO: [Common 17-83] Releasing license: Synthesis
+21 Infos, 17 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:23 ; elapsed = 00:00:17 . Memory (MB): peak = 2609.344 ; gain = 8.012 ; free physical = 1119 ; free virtual = 12424
+INFO: [Common 17-1381] The checkpoint '/home/angel/wupr_tb/wupr_tb.runs/synth_1/wupr_main.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file wupr_main_utilization_synth.rpt -pb wupr_main_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Mon Jul  4 12:17:18 2022...

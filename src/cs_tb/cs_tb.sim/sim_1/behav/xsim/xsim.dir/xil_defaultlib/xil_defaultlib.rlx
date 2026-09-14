@@ -1,0 +1,12 @@
+0.7
+2020.2
+Oct 19 2021
+02:56:52
+/home/angel/Documents/communication_controller/cs/buffer.vhd,1650995821,vhdl,,,,tri_state_buffer,,,,,,,,
+/home/angel/Documents/communication_controller/cs/dff.vhd,1649516183,vhdl,,,,dff,,,,,,,,
+/home/angel/Documents/communication_controller/cs/micro_comparator.vhd,1651042571,vhdl,,,,micro_comparator,,,,,,,,
+/home/angel/Documents/communication_controller/cs/micro_counter.vhd,1653124092,vhdl,,,,micro_counter,,,,,,,,
+/home/angel/Documents/communication_controller/cs/microtick_counter.vhd,1651217803,vhdl,/home/angel/Documents/communication_controller/cs/microtick_counter_tb.vhd,,,microtick_counter,,,,,,,,
+/home/angel/Documents/communication_controller/cs/microtick_counter_tb.vhd,1656336507,vhdl,,,,testbench,,,,,,,,
+/home/angel/Documents/communication_controller/cs/srff.vhd,1649516155,vhdl,,,,srff,,,,,,,,
+/home/angel/Documents/communication_controller/cs/vbit_fsm.vhd,1651218581,vhdl,,,,vbit_fsm,,,,,,,,

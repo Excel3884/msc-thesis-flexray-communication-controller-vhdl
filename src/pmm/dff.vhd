@@ -1,0 +1,33 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+ENTITY dff IS
+  GENERIC (d_len : integer := 1;
+           q_len : integer := 1);
+  PORT (d            : IN  std_logic_vector(d_len-1 DOWNTO 0);
+        q            : OUT std_logic_vector(q_len-1 DOWNTO 0);
+        clk, rst, en : IN  std_logic);
+END dff;
+
+ARCHITECTURE default OF dff IS          -- architecture with asynchronous reset
+BEGIN
+
+
+  PROCESS(rst, clk)
+  BEGIN
+    CASE en IS
+      WHEN '1' =>
+        CASE rst IS
+          WHEN '1' => q <= (OTHERS => '0');
+          WHEN '0' =>
+            IF (clk'event AND clk = '1') THEN
+              q <= d;
+            END IF;
+          WHEN OTHERS => NULL;
+        END CASE;
+      WHEN OTHERS =>
+        q <= (OTHERS => 'Z');
+    END CASE;
+  END PROCESS;
+
+END default;

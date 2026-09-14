@@ -1,0 +1,155 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+ENTITY mil_main IS
+  PORT (
+    clk : IN std_logic;
+    rst : IN std_logic := '0';  --θα αλλάξει, γιατί θα ελέγχεται απ' το clock
+    --synchronization module
+
+    -- output layer
+    chi_out, wupg_out, cs_out : IN  std_logic_vector(44 DOWNTO 0);
+    data_out                  : OUT std_logic_vector(54 DOWNTO 0);
+
+    -- input layer
+    data_in               : IN  std_logic_vector(54 DOWNTO 0);
+    -- το wup_in οδηγεί στον controller host interface
+    -- το chi_in είναι για τα δεδομένα
+    chi_in, wup_in, cs_in : OUT std_logic_vector(43 DOWNTO 0);
+
+    -- testing signals
+    test_err    : OUT std_logic
+
+    );
+END mil_main;
+
+ARCHITECTURE default OF mil_main IS
+  -- components
+  COMPONENT scheduler IS
+    PORT (a, b, c : IN  std_logic;
+          s1, s0  : OUT std_logic);
+  END COMPONENT;
+
+  COMPONENT mux IS
+    PORT (sel     : IN std_logic_vector(1 DOWNTO 0);
+          a, b, c : IN std_logic_vector(44 DOWNTO 0);
+
+          output : OUT std_logic_vector(44 DOWNTO 0));
+  END COMPONENT;
+
+  COMPONENT dff IS
+    GENERIC (d_len : integer := 1;
+             q_len : integer := 1);
+    PORT (d            : IN  std_logic_vector(d_len-1 DOWNTO 0);
+          q            : OUT std_logic_vector(q_len-1 DOWNTO 0);
+          clk, rst, en : IN  std_logic);
+  END COMPONENT;
+
+  COMPONENT encoder IS
+    PORT (input   : IN  std_logic_vector(43 DOWNTO 0);
+          en, clk : IN  std_logic;
+          output  : OUT std_logic_vector(54 DOWNTO 0) := (OTHERS => 'Z'));
+  END COMPONENT;
+
+  COMPONENT error_detect IS
+    PORT (input        : IN  std_logic_vector(54 DOWNTO 0);
+          output       : OUT std_logic_vector(54 DOWNTO 0);
+          en, rst, clk : IN  std_logic;
+          found_error  : OUT std_logic);
+  END COMPONENT;
+
+  COMPONENT decoder IS
+    PORT (input   : IN  std_logic_vector(54 DOWNTO 0);
+          en, clk : IN  std_logic;
+          output  : OUT std_logic_vector(43 DOWNTO 0) := (OTHERS => 'Z'));
+  END COMPONENT;
+
+  COMPONENT demux IS
+    PORT (sel     : IN  std_logic_vector(1 DOWNTO 0);
+          input   : IN  std_logic_vector(43 DOWNTO 0);
+          a, b, c : OUT std_logic_vector(43 DOWNTO 0));
+  END COMPONENT;
+
+  COMPONENT fid_gen IS
+    PORT (
+      clr, clk : IN  std_logic;
+      input    : IN  std_logic_vector(44 DOWNTO 0);
+      output   : OUT std_logic_vector(43 DOWNTO 0)
+      );
+  END COMPONENT;
+
+  -- WIRES
+
+  -- output layer
+  SIGNAL mux_s1, mux_s0      : std_logic;
+  SIGNAL mux_out             : std_logic_vector(44 DOWNTO 0);
+  SIGNAL dff0_out            : std_logic_vector(44 DOWNTO 0);
+  SIGNAL encoder_out         : std_logic_vector(54 DOWNTO 0);
+  SIGNAL dff1_out            : std_logic_vector(43 DOWNTO 0);
+  SIGNAL fid_gen_out         : std_logic_vector(43 DOWNTO 0);
+  --input layer
+  SIGNAL dff3_out            : std_logic_vector(54 DOWNTO 0);
+  SIGNAL error_status        : std_logic;
+  SIGNAL error_detect_output : std_logic_vector(54 DOWNTO 0);
+  SIGNAL dff4_out            : std_logic_vector(54 DOWNTO 0);
+  SIGNAL OR_gate             : std_logic;
+  SIGNAL decoder_output      : std_logic_vector(43 DOWNTO 0);
+  SIGNAL dff5_out            : std_logic_vector(43 DOWNTO 0);
+  SIGNAL typeofservice       : std_logic_vector(1 DOWNTO 0);  --καθορίζει τη διαδρομή
+                                                              --του εισερχόμενου πλαισίου στον αποπλέκτη
+
+BEGIN
+                                        -- OUTPUT LAYER
+  -- scheduler and multiplexer
+  sched0 : scheduler PORT MAP (a => cs_out(0), b => chi_out(0), c => wupg_out(0), s1 => mux_s1, s0 => mux_s0);
+  mux0   : mux PORT MAP (sel(1)  => mux_s1, sel(0) => mux_s0, a => chi_out, b => wupg_out, c => cs_out, output => mux_out);
+
+  -- flip flop
+  dff0 : dff GENERIC MAP (d_len => 45, q_len => 45) PORT MAP (d => mux_out(44 DOWNTO 0), q => dff0_out, clk => clk, rst => rst, en => '1');
+
+  -- frame id generator
+  fid_gen0 : fid_gen PORT MAP (clr => '0', clk => clk, input => dff0_out, output => fid_gen_out);
+
+  -- flip flop
+  dff1 : dff GENERIC MAP (d_len => 44, q_len => 44) PORT MAP (d => fid_gen_out, q => dff1_out, clk => clk, rst => rst, en => '1');
+
+  -- encoder 
+  encoder0 : encoder PORT MAP (input => dff1_out, en => '1', clk => clk, output => encoder_out);
+
+  -- flip flop
+  dff2 : dff GENERIC MAP (d_len => 55, q_len => 55) PORT MAP (d => encoder_out, q => data_out, clk => clk, rst => rst, en => '1');
+
+
+
+                                        -- INPUT LAYER
+  -- κατεύθυνση: είσοδος => έξοδος (δεξιά προς τα αριστερά στο σχήμα)
+  -- flip flop
+  dff3 : dff GENERIC MAP (d_len => 55, q_len => 55) PORT MAP (d => data_in, q => dff3_out, clk => clk, rst => rst, en => '1');
+
+  -- error detection
+  error_detect0 : error_detect PORT MAP (input => dff3_out, output => error_detect_output, en => '1', clk => clk, rst => rst, found_error => error_status);
+
+  -- flip flop
+  dff4 : dff GENERIC MAP (d_len => 55, q_len => 55) PORT MAP (d => error_detect_output, q => dff4_out, clk => clk, rst => OR_gate, en => '1');
+
+  -- or gate
+  OR_gate <= error_status OR rst;
+
+  -- decoder
+  decoder0 : decoder PORT MAP (input => dff4_out, output => decoder_output, clk => clk, en => '1');
+
+  -- flip flop
+  dff5 : dff GENERIC MAP (d_len => 44, q_len => 44) PORT MAP (d => decoder_output, q => dff5_out, clk => clk, rst => rst, en => '1');
+
+  -- demux's selection bits
+  typeofservice <= dff5_out(33 DOWNTO 32);  -- 11o-12o bits
+
+  -- demux
+  demux0 : demux PORT MAP (sel => typeofservice, input => dff5_out, a => wup_in, b => chi_in, c => cs_in);
+
+
+
+  test_err    <= error_status;
+
+
+END default;

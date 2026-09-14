@@ -1,0 +1,1 @@
+--incr --debug "typical" --relax --mt "8" -L "xil_defaultlib" -L "secureip" --snapshot "controller_behav" "xil_defaultlib.controller" -log "elaborate.log" 

@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2021.2 (64-bit)
+# SW Build 3367213 on Tue Oct 19 02:47:39 MDT 2021
+# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+# Start of session at: Fri Jul  8 17:48:52 2022
+# Process ID: 161133
+# Current directory: /home/angel/Documents/communication_controller/testbench/testbench.runs/synth_1_copy_3
+# Command line: vivado -log controller.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source controller.tcl
+# Log file: /home/angel/Documents/communication_controller/testbench/testbench.runs/synth_1_copy_3/controller.vds
+# Journal file: /home/angel/Documents/communication_controller/testbench/testbench.runs/synth_1_copy_3/vivado.jou
+# Running On: angel-desktop, OS: Linux, CPU Frequency: 1550.000 MHz, CPU Physical cores: 12, Host memory: 16696 MB
+#-----------------------------------------------------------
+source controller.tcl -notrace

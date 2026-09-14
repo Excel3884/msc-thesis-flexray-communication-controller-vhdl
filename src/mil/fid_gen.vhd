@@ -1,0 +1,43 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+USE ieee.numeric_std.ALL;
+
+ENTITY fid_gen IS
+  PORT (
+    clr, clk : IN  std_logic;
+    input    : IN  std_logic_vector(44 DOWNTO 0);
+    output   : OUT std_logic_vector(43 DOWNTO 0)
+    );
+END fid_gen;
+
+ARCHITECTURE default OF fid_gen IS
+  SIGNAL en : std_logic;  --εσωτερικό σήμα, γιατί το παίρνουμε απ' το validity bit
+BEGIN
+  en <= input(0);         -- το τελευταίο bit είναι το validity bit
+
+  PROCESS (clk, clr)
+    VARIABLE temp : integer RANGE 0 TO 32;
+  BEGIN
+    CASE en IS
+      WHEN '1' =>
+        CASE clr IS
+          WHEN '0' =>
+            IF (clk'event AND clk = '1') THEN
+              temp                 := temp + 1;
+              output(38 DOWNTO 0)  <= input(39 DOWNTO 1);  -- το τελευταίο bit
+                                                           -- χρησιμοποιήθηκε πριν
+              output(43 DOWNTO 39) <= std_logic_vector(to_unsigned(temp, 5));
+            END IF;
+          WHEN OTHERS =>
+            temp := 0;
+        END CASE;
+      WHEN OTHERS =>
+        --output <= (OTHERS => 'Z');
+        NULL;
+    END CASE;
+
+  END PROCESS;
+
+END default;
+
+

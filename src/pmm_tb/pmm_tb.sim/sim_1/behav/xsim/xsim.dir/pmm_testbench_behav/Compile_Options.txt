@@ -1,0 +1,1 @@
+--incr --debug "typical" --relax --mt "8" -L "xil_defaultlib" -L "secureip" --snapshot "pmm_testbench_behav" "xil_defaultlib.pmm_testbench" -log "elaborate.log" 
