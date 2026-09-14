@@ -7,7 +7,7 @@ verifying each module (filenames ending in `_tb`).
 ## General Architecture
 
 <p align="center">
-  <img src="architecture.png" alt="General Architecture" width="60%">
+  <img src="general_architecture.png" alt="General Architecture" width="60%">
 </p>
 
 ## Module Structure
